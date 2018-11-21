@@ -119,19 +119,28 @@ ynh_setup_source "$final_path"
 # MODIFY A CONFIG FILE
 #=================================================
 
-#cp -a ../conf/onlyoffice-documentserver.conf /etc/onlyoffice/documentserver/nginx/onlyoffice-documentserver.conf
+# Main config File
 ynh_replace_string "__DB_USER__" "$db_user" "../conf/config.json.exemple"
 ynh_replace_string "__DB_NAME__" "$db_name" "../conf/config.json.exemple"
 ynh_replace_string "__DB_PASS__" "$db_pass" "../conf/config.json.exemple"
 cp ../conf/config.json.exemple $final_path/config.json
 cp -a ../conf/codimd.service /etc/systemd/system/codimd.service
 
+# DB Config File
+ynh_replace_string "__DB_USER__" "$db_user" "../conf/.sequelizerc.example"
+ynh_replace_string "__DB_NAME__" "$db_name" "../conf/.sequelizerc.example"
+ynh_replace_string "__DB_PASS__" "$db_pass" "../conf/.sequelizerc.example"
+cp ../conf/.sequelizerc.example $final_path/.sequelizerc
+
 #==============================================
 # INSTALL CODIMD
 #==============================================
 
 pushd $final_path
-bin/setup
+npm install
+npm run build
+node_modules/.bin/sequelize db:migrate
+popd
 
 #=================================================
 # NGINX CONFIGURATION
