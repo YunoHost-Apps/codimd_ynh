@@ -28,6 +28,9 @@ ynh_abort_if_errors
 domain=$YNH_APP_ARG_DOMAIN
 path_url=$YNH_APP_ARG_PATH
 is_public=$YNH_APP_ARG_IS_PUBLIC
+db_user=$app
+db_name=$app
+db_pass=ynh_string_random 20
 #db_user=$YNH_APP_ARG_DB_USER
 #db_name=$YNH_APP_ARG_DB_NAME
 #db_pass=$YNH_APP_ARG_DB_PASS
@@ -111,9 +114,9 @@ ynh_install_nodejs 8.12.0
 # CREATE DB
 #==============================================
 
-sudo -i -u postgres psql -c "CREATE DATABASE codimd;"
-sudo -i -u postgres psql -c "CREATE USER onlyoffice WITH password 'codimd';"
-sudo -i -u postgres psql -c "GRANT ALL privileges ON DATABASE onlyoffice TO codimd;"
+sudo -i -u postgres psql -c "CREATE DATABASE __DB_NAME__;"
+sudo -i -u postgres psql -c "CREATE USER __DB_USER__ WITH password '__DB_PASS__';"
+sudo -i -u postgres psql -c "GRANT ALL privileges ON DATABASE __DB_NAME__ TO __DB_USER__;"
 
 #==============================================
 # INSTALL CODIMD
