@@ -45,39 +45,6 @@
             },
             
             {
-                "name": "db_user",
-                "type": "string",
-                "ask": {
-                    "en": "What user name for the DB ?",
-                    "fr": "Quel nom d'utilisateur pour la DB ?"
-                },
-                "example": "codimd",
-                "default": "codimd"
-            },
-            
-            {
-                "name": "db_pass",
-                "type": "string",
-                "ask": {
-                    "en": "What password for the DB ?",
-                    "fr": "Quel mot de passe pour la DB ?"
-                },
-                "example": "codimd",
-                "default": "codimd"
-            },
-            
-            {
-                "name": "db_name",
-                "type": "string",
-                "ask": {
-                    "en": "What name for the DB ?",
-                    "fr": "Quel nom pour la DB ?"
-                },
-                "example": "codimd",
-                "default": "codimd"
-            },
-            
-            {
                 "name": "is_public",
                 "type": "boolean",
                 "ask": {
