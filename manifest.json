@@ -1,10 +1,10 @@
 {
-    "name": "EmbyServer",
-    "id": "embyserver",
+    "name": "CodiMD",
+    "id": "codimd",
     "packaging_format": 1,
     "description": {
-        "en": "EmbyServer package for YunoHost.",
-        "fr": "EmbyServer pour YunoHost."
+        "en": "CodiMD package for YunoHost.",
+        "fr": "CodiMD pour YunoHost."
     },
     "version": "3.5.3.0",
     "url": "https://emby.media/",
@@ -27,8 +27,8 @@
                 "name": "domain",
                 "type": "domain",
                 "ask": {
-                    "en": "Choose a domain name for EmbyServer",
-                    "fr": "Choisissez un nom de domaine pour EmbyServer"
+                    "en": "Choose a domain name for CodiMD",
+                    "fr": "Choisissez un nom de domaine pour CodiMD"
                 },
                 "example": "example.com"
             },
@@ -37,11 +37,44 @@
                 "name": "path",
                 "type": "path",
                 "ask": {
-                    "en": "Choose a path for EmbyServer /emby is accepted",
-                    "fr": "Choisissez un chemin pour EmbyServer /emby est accepté"
+                    "en": "Choose a path for CodiMD /emby is accepted",
+                    "fr": "Choisissez un chemin pour CodiMD /emby est accepté"
                 },
-                "example": "/emby",
-                "default": "/emby"
+                "example": "/codimd",
+                "default": "/codimd"
+            },
+            
+            {
+                "name": "db_user",
+                "type": "string",
+                "ask": {
+                    "en": "What user name for the DB ?",
+                    "fr": "Quel nom d'utilisateur pour la DB ?"
+                },
+                "example": "codimd",
+                "default": "codimd"
+            },
+            
+            {
+                "name": "db_pass",
+                "type": "string",
+                "ask": {
+                    "en": "What password for the DB ?",
+                    "fr": "Quel mot de passe pour la DB ?"
+                },
+                "example": "codimd",
+                "default": "codimd"
+            },
+            
+            {
+                "name": "db_name",
+                "type": "string",
+                "ask": {
+                    "en": "What name for the DB ?",
+                    "fr": "Quel nom pour la DB ?"
+                },
+                "example": "codimd",
+                "default": "codimd"
             },
             
             {

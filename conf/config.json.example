@@ -32,9 +32,9 @@
             "addGoogleAnalytics": true
         },
         "db": {
-            "username": "codimd",
-            "password": "codimd",
-            "database": "codimd",
+            "username": "__DB_USER__",
+            "password": "__DB_PASS__",
+            "database": "__DB_NAME__",
             "host": "localhost",
             "port": "5432",
             "dialect": "postgres"
