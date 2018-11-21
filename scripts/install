@@ -24,27 +24,9 @@ ynh_abort_if_errors
 # RETRIEVE ARGUMENTS FROM THE MANIFEST
 #=================================================
 
-# Retrieve arguments
 domain=$YNH_APP_ARG_DOMAIN
 path_url=$YNH_APP_ARG_PATH
 is_public=$YNH_APP_ARG_IS_PUBLIC
-db_user=$app
-db_name=$app
-db_pass=ynh_string_random 20
-#db_user=$YNH_APP_ARG_DB_USER
-#db_name=$YNH_APP_ARG_DB_NAME
-#db_pass=$YNH_APP_ARG_DB_PASS
-
-### If it's a multi-instance app, meaning it can be installed several times independently
-### The id of the app as stated in the manifest is available as $YNH_APP_ID
-### The instance number is available as $YNH_APP_INSTANCE_NUMBER (equals "1", "2", ...)
-### The app instance name is available as $YNH_APP_INSTANCE_NAME
-###    - the first time the app is installed, YNH_APP_INSTANCE_NAME = ynhexample
-###    - the second time the app is installed, YNH_APP_INSTANCE_NAME = ynhexample__2
-###    - ynhexample__{N} for the subsequent installations, with N=3,4, ...
-### The app instance name is probably what interests you most, since this is
-### guaranteed to be unique. This is a good unique identifier to define installation path,
-### db names, ...
 app=$YNH_APP_INSTANCE_NAME
 
 #=================================================
@@ -114,9 +96,16 @@ ynh_install_nodejs 8.12.0
 # CREATE DB
 #==============================================
 
-sudo -i -u postgres psql -c "CREATE DATABASE __DB_NAME__;"
-sudo -i -u postgres psql -c "CREATE USER __DB_USER__ WITH password '__DB_PASS__';"
-sudo -i -u postgres psql -c "GRANT ALL privileges ON DATABASE __DB_NAME__ TO __DB_USER__;"
+db_user=$app
+db_name=$app
+db_pass=ynh_string_random 20
+ynh_app_setting_set $app db_pass $db_pass
+
+# Create postgresql database
+ynh_psql_test_if_first_run
+ynh_psql_create_user $db_user $db_pass
+ynh_psql_execute_as_root \
+"CREATE DATABASE $db_name ENCODING 'UTF8' LC_COLLATE='C' LC_CTYPE='C' template=template0 OWNER $db_user;"
 
 #==============================================
 # INSTALL CODIMD
@@ -147,6 +136,7 @@ ynh_system_user_create $app
 ynh_replace_string "__DB_USER__" "$db_user" "../conf/config.json.exemple"
 ynh_replace_string "__DB_NAME__" "$db_name" "../conf/config.json.exemple"
 ynh_replace_string "__DB_PASS__" "$db_pass" "../conf/config.json.exemple"
+cp ../conf/config.json.exemple $final_path/config.json
 
 #=================================================
 # STORE THE CONFIG FILE CHECKSUM
