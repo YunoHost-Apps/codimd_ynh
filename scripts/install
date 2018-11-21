@@ -76,17 +76,42 @@ ynh_app_setting_set $app is_public $is_public
 ###		- Remove the section "CLOSE A PORT" in the remove script
 
 # Find a free port
-port=$(ynh_find_port 8096)
+port=$(ynh_find_port 443)
 # Open this port
 yunohost firewall allow --no-upnp TCP $port 2>&1
 ynh_app_setting_set $app port $port
 
 #==============================================
-# INSTALL EMBY
+# INSTALL POSTGRES
 #==============================================
 
-wget --no-verbose 'https://github.com/MediaBrowser/Emby.Releases/releases/download/3.5.3.0/emby-server-deb_3.5.3.0_amd64.deb'
-dpkg --install emby-server-deb_3.5.3.0_amd64.deb
+ynh_install_app_dependencies postgresql apt-transport-https
+
+#sudo apt-get install -y postgresql apt-transport-https
+
+#=================================================
+# INSTALL NODEJS
+#=================================================
+# Use Helper instead of package from the repo
+
+ynh_install_nodejs 8.12.0
+
+#curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
+
+#==============================================
+# CREATE DB
+#==============================================
+
+sudo -i -u postgres psql -c "CREATE DATABASE codimd;"
+sudo -i -u postgres psql -c "CREATE USER onlyoffice WITH password 'codimd';"
+sudo -i -u postgres psql -c "GRANT ALL privileges ON DATABASE onlyoffice TO codimd;"
+
+#==============================================
+# INSTALL CODIMD
+#==============================================
+
+wget --no-verbose 'https://github.com/hackmdio/codimd/archive/1.2.1.tar.gz'
+tar -xvf codimd-1.2.1.tar.gz
 
 #=================================================
 # NGINX CONFIGURATION
