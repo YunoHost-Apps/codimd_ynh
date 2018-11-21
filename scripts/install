@@ -124,6 +124,7 @@ ynh_replace_string "__DB_USER__" "$db_user" "../conf/config.json.exemple"
 ynh_replace_string "__DB_NAME__" "$db_name" "../conf/config.json.exemple"
 ynh_replace_string "__DB_PASS__" "$db_pass" "../conf/config.json.exemple"
 cp ../conf/config.json.exemple $final_path/config.json
+cp -a ../conf/codimd.service /etc/systemd/system/codimd.service
 
 #==============================================
 # INSTALL CODIMD
@@ -183,4 +184,6 @@ if [ $is_public -eq 1 ]; then
 fi
 
 # Reload services
+systemctl enable codimd
+systemctl start codimd
 systemctl restart nginx
