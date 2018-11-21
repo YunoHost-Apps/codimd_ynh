@@ -124,7 +124,6 @@ ynh_replace_string "__DB_USER__" "$db_user" "../conf/config.json.example"
 ynh_replace_string "__DB_NAME__" "$db_name" "../conf/config.json.example"
 ynh_replace_string "__DB_PASS__" "$db_pass" "../conf/config.json.example"
 cp ../conf/config.json.example $final_path/config.json
-cp -a ../conf/codimd.service /etc/systemd/system/codimd.service
 
 # DB Config File
 ynh_replace_string "__DB_USER__" "$db_user" "../conf/.sequelizerc.example"
