@@ -98,7 +98,7 @@ ynh_install_nodejs 8
 
 db_user=$app
 db_name=$app
-db_pass=ynh_string_random 20
+db_pass=$(ynh_string_random 20)
 ynh_app_setting_set $app db_pass $db_pass
 
 # Create postgresql database
