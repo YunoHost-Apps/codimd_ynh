@@ -150,6 +150,15 @@ popd
 ynh_add_nginx_config
 
 #=================================================
+# SETUP SYSTEMD
+#=================================================
+
+ynh_replace_string "__NODEJS__" "$nodejs_use_version" "/etc/systemd/system/$app.service"
+ynh_replace_string "__ENV_PATH__" "$PATH" "/etc/systemd/system/$app.service"
+ynh_replace_string "__NODE__" "$nodejs_path" "/etc/systemd/system/$app.service"
+ynh_add_systemd_config
+
+#=================================================
 # CREATE DEDICATED USER
 #=================================================
 

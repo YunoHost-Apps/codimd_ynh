@@ -1,0 +1,15 @@
+[Unit]
+Description=CodiMD service.
+After=syslog.target network.target
+
+[Service]
+Type=simple
+User=__APP__
+Group=__APP__
+WorkingDirectory=__FINALPATH__
+Environment="PATH=__ENV_PATH__"
+ExecStart=__NODE__ app.js
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
