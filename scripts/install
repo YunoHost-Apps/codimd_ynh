@@ -28,6 +28,9 @@ ynh_abort_if_errors
 domain=$YNH_APP_ARG_DOMAIN
 path_url=$YNH_APP_ARG_PATH
 is_public=$YNH_APP_ARG_IS_PUBLIC
+#db_user=$YNH_APP_ARG_DB_USER
+#db_name=$YNH_APP_ARG_DB_NAME
+#db_pass=$YNH_APP_ARG_DB_PASS
 
 ### If it's a multi-instance app, meaning it can be installed several times independently
 ### The id of the app as stated in the manifest is available as $YNH_APP_ID
@@ -65,6 +68,9 @@ ynh_webpath_register $app $domain $path_url
 ynh_app_setting_set $app domain $domain
 ynh_app_setting_set $app path $path_url
 ynh_app_setting_set $app is_public $is_public
+#ynh_app_setting_set $app db_user $nextclouddomain
+#ynh_app_setting_set $app nextclouddomain $nextclouddomain
+#ynh_app_setting_set $app nextclouddomain $nextclouddomain
 
 #=================================================
 # FIND AND OPEN A PORT
