@@ -1,15 +1,14 @@
 [Unit]
-Description=jdownloader
-After=network.target
+Description=CodiMD service.
+After=syslog.target network.target
 
 [Service]
-WorkingDirectory=/opt/jdownloader/
-User=admin
-Group=users
 Type=simple
-UMask=000
-ExecStart=/usr/bin/java -Djava.awt.headless=true -jar JDownloader.jar
-RestartSec=15
+User=__APP__
+Group=__APP__
+WorkingDirectory=__FINALPATH__
+Environment="PATH=__ENV_PATH__"
+ExecStart=__NODE__ app.js
 Restart=always
 
 [Install]
