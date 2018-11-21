@@ -107,12 +107,30 @@ ynh_psql_create_user $db_user $db_pass
 ynh_psql_execute_as_root \
 "CREATE DATABASE $db_name ENCODING 'UTF8' LC_COLLATE='C' LC_CTYPE='C' template=template0 OWNER $db_user;"
 
+#=================================================
+# DOWNLOAD, CHECK AND UNPACK SOURCE
+#=================================================
+
+ynh_app_setting_set $app final_path $final_path
+# Download, check integrity, uncompress and patch the source from app.src
+ynh_setup_source "$final_path"
+
+#=================================================
+# MODIFY A CONFIG FILE
+#=================================================
+
+#cp -a ../conf/onlyoffice-documentserver.conf /etc/onlyoffice/documentserver/nginx/onlyoffice-documentserver.conf
+ynh_replace_string "__DB_USER__" "$db_user" "../conf/config.json.exemple"
+ynh_replace_string "__DB_NAME__" "$db_name" "../conf/config.json.exemple"
+ynh_replace_string "__DB_PASS__" "$db_pass" "../conf/config.json.exemple"
+cp ../conf/config.json.exemple $final_path/config.json
+
 #==============================================
 # INSTALL CODIMD
 #==============================================
 
-wget --no-verbose 'https://github.com/hackmdio/codimd/archive/1.2.1.tar.gz'
-tar -xvf codimd-1.2.1.tar.gz
+pushd $final_path
+bin/setup
 
 #=================================================
 # NGINX CONFIGURATION
@@ -127,16 +145,6 @@ ynh_add_nginx_config
 
 # Create a system user
 ynh_system_user_create $app
-
-#=================================================
-# MODIFY A CONFIG FILE
-#=================================================
-
-#cp -a ../conf/onlyoffice-documentserver.conf /etc/onlyoffice/documentserver/nginx/onlyoffice-documentserver.conf
-ynh_replace_string "__DB_USER__" "$db_user" "../conf/config.json.exemple"
-ynh_replace_string "__DB_NAME__" "$db_name" "../conf/config.json.exemple"
-ynh_replace_string "__DB_PASS__" "$db_pass" "../conf/config.json.exemple"
-cp ../conf/config.json.exemple $final_path/config.json
 
 #=================================================
 # STORE THE CONFIG FILE CHECKSUM

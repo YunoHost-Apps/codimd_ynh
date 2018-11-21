@@ -1,0 +1,6 @@
+SOURCE_URL=https://github.com/hackmdio/codimd/archive/1.2.1.tar.gz
+SOURCE_SUM=850fe2e4aed30eb3f83d77f1d9d8421ad0ab52f24ec7faaa07d4269cc440d4e4
+SOURCE_SUM_PRG=sha256sum
+SOURCE_FORMAT=tar.gz
+SOURCE_IN_SUBDIR=true
+SOURCE_FILENAME=
