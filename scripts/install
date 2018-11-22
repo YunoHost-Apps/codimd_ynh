@@ -53,9 +53,6 @@ ynh_webpath_register $app $domain $path_url
 ynh_app_setting_set $app domain $domain
 ynh_app_setting_set $app path $path_url
 ynh_app_setting_set $app is_public $is_public
-#ynh_app_setting_set $app db_user $nextclouddomain
-#ynh_app_setting_set $app nextclouddomain $nextclouddomain
-#ynh_app_setting_set $app nextclouddomain $nextclouddomain
 
 #=================================================
 # FIND AND OPEN A PORT
@@ -78,20 +75,12 @@ ynh_app_setting_set $app port $port
 
 ynh_install_app_dependencies postgresql apt-transport-https
 
-#sudo apt-get install -y postgresql apt-transport-https
-
 #=================================================
 # INSTALL NODEJS
 #=================================================
 # Use Helper instead of package from the repo
 
 ynh_install_nodejs 6
-
-#curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
-
-#sudo npm install -g npm
-
-#sudo npm install -g node-gyp; sudo npm link node-gyp sudo npm install -g webpack; sudo npm link webpack sudo npm install -g common-chunks-webpack-plugin; sudo npm link common-chunks-webpack-plugin sudo npm install -g extract-text-webpack-plugin; sudo npm link extract-text-webpack-plugin sudo npm install -g i18n-webpack-plugin; sudo npm link i18n-webpack-plugin sudo npm install -g compression-webpack-plugin; sudo npm link compression-webpack-plugin sudo npm install -g html-webpack-plugin; sudo npm link html-webpack-plugin sudo npm install -g copy-webpack-plugin; sudo npm link copy-webpack-plugin
 
 #==============================================
 # CREATE DB
