@@ -85,10 +85,11 @@ ynh_install_app_dependencies postgresql apt-transport-https
 #=================================================
 # Use Helper instead of package from the repo
 
-#ynh_install_nodejs 8
+ynh_install_nodejs 8
 
-curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
+#curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
 
+sudo npm install -g npm
 
 #sudo npm install -g node-gyp; sudo npm link node-gyp sudo npm install -g webpack; sudo npm link webpack sudo npm install -g common-chunks-webpack-plugin; sudo npm link common-chunks-webpack-plugin sudo npm install -g extract-text-webpack-plugin; sudo npm link extract-text-webpack-plugin sudo npm install -g i18n-webpack-plugin; sudo npm link i18n-webpack-plugin sudo npm install -g compression-webpack-plugin; sudo npm link compression-webpack-plugin sudo npm install -g html-webpack-plugin; sudo npm link html-webpack-plugin sudo npm install -g copy-webpack-plugin; sudo npm link copy-webpack-plugin
 
