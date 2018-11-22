@@ -125,7 +125,6 @@ ynh_replace_string "__DB_USER__" "$db_user" "../conf/config.json.example"
 ynh_replace_string "__DB_NAME__" "$db_name" "../conf/config.json.example"
 ynh_replace_string "__DB_PASS__" "$db_pass" "../conf/config.json.example"
 cp ../conf/config.json.example $final_path/config.json
-cp ../conf/systemd.service /etc/systemd/system/$app.service
 
 # DB Config File
 ynh_replace_string "__DB_USER__" "$db_user" "../conf/.sequelizerc.example"
@@ -154,10 +153,17 @@ ynh_add_nginx_config
 # SETUP SYSTEMD
 #=================================================
 
-ynh_replace_string "__NODEJS__" "$nodejs_use_version" "/etc/systemd/system/$app.service"
-ynh_replace_string "__ENV_PATH__" "$PATH" "/etc/systemd/system/$app.service"
-ynh_replace_string "__NODE__" "$nodejs_path" "/etc/systemd/system/$app.service"
-ynh_add_systemd_config
+#cp ../conf/systemd.service /etc/systemd/system/$app.service
+#ynh_replace_string "__NODEJS__" "$nodejs_use_version" "/etc/systemd/system/$app.service"
+#ynh_replace_string "__ENV_PATH__" "$PATH" "/etc/systemd/system/$app.service"
+#ynh_replace_string "__NODE__" "$nodejs_path" "/etc/systemd/system/$app.service"
+#ynh_add_systemd_config
+
+ynh_replace_string "__NODEJS__" "$nodejs_use_version" "../conf/systemd.service"
+ynh_replace_string "__ENV_PATH__" "$PATH" "../conf/systemd.service"
+ynh_replace_string "__NODE__" "$nodejs_path" "../conf/systemd.service"
+cp ../conf/systemd.service /etc/systemd/system/$app.service
+#ynh_add_systemd_config
 
 #=================================================
 # CREATE DEDICATED USER
