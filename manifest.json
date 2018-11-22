@@ -6,8 +6,8 @@
         "en": "CodiMD package for YunoHost.",
         "fr": "CodiMD pour YunoHost."
     },
-    "version": "3.5.3.0",
-    "url": "https://emby.media/",
+    "version": "1.2.1",
+    "url": "https://github.com/hackmdio/codimd/",
     "license": "free",
     "maintainer": {
         "name": "liberodark",
