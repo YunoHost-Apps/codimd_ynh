@@ -186,7 +186,7 @@ ynh_store_file_checksum "$final_path/config.json"
 ### that really need such authorization.
 
 # Set permissions to app files
-#chown -R root: /etc/loolwsd
+chown -R $app:$app $final_path
 
 
 #=================================================
