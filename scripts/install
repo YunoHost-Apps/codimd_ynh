@@ -10,124 +10,196 @@ source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
-# LOAD SETTINGS
+# MANAGE SCRIPT FAILURE
 #=================================================
-ynh_print_info "Loading installation settings..."
 
+ynh_clean_setup () {
+	### Remove this function if there's nothing to clean before calling the remove script.
+	true
+}
+# Exit if an error occurs during the execution of the script
+ynh_abort_if_errors
+
+#=================================================
+# RETRIEVE ARGUMENTS FROM THE MANIFEST
+#=================================================
+
+domain=$YNH_APP_ARG_DOMAIN
+path_url=$YNH_APP_ARG_PATH
+is_public=$YNH_APP_ARG_IS_PUBLIC
 app=$YNH_APP_INSTANCE_NAME
 
-domain=$(ynh_app_setting_get $app domain)
-port=$(ynh_app_setting_get $app port)
-db_name=$(ynh_app_setting_get $app db_name)
-db_user=$db_name
-final_path=$(ynh_app_setting_get $app final_path)
-
 #=================================================
-# STANDARD REMOVE
-#=================================================
-# REMOVE SERVICE FROM ADMIN PANEL
+# CHECK IF THE APP CAN BE INSTALLED WITH THESE ARGS
 #=================================================
 
-# Remove a service from the admin panel, added by `yunohost service add`
-if yunohost service status $app >/dev/null 2>&1
-then
-	ynh_print_info "Removing $app service"
-	yunohost service remove $app
-fi
+### If the app uses nginx as web server (written in HTML/PHP in most cases), the final path should be "/var/www/$app".
+### If the app provides an internal web server (or uses another application server such as uwsgi), the final path should be "/opt/yunohost/$app"
+final_path=/var/www/$app
+test ! -e "$final_path" || ynh_die "This path already contains a folder"
+
+# Normalize the url path syntax
+path_url=$(ynh_normalize_url_path $path_url)
+
+# Check web path availability
+ynh_webpath_available $domain $path_url
+# Register (book) web path
+ynh_webpath_register $app $domain $path_url
 
 #=================================================
-# STOP AND REMOVE SERVICE
-#=================================================
-ynh_print_info "Stopping and removing the systemd service"
-
-# Remove the dedicated systemd config
-ynh_remove_systemd_config
-
-#=================================================
-# REMOVE THE POSTGRESQL DATABASE
-#=================================================
-ynh_print_info "Removing the PostgreSQL database"
-
-# Remove a database if it exists, along with the associated user
-ynh_psql_remove_db $db_name $db_name
-
-#=================================================
-# REMOVE DEPENDENCIES
-#=================================================
-ynh_print_info "Removing dependencies"
-
-# Remove metapackage and its dependencies
-ynh_remove_app_dependencies
-
-#=================================================
-# REMOVE APP MAIN DIR
-#=================================================
-ynh_print_info "Removing app main directory"
-
-# Remove the app directory securely
-ynh_secure_remove "$final_path"
-
-#=================================================
-# REMOVE NGINX CONFIGURATION
-#=================================================
-ynh_print_info "Removing nginx web server configuration"
-
-# Remove the dedicated nginx config
-ynh_remove_nginx_config
-
-#=================================================
-# REMOVE PHP-FPM CONFIGURATION
-#=================================================
-#ynh_print_info "Removing php-fpm configuration"
-
-# Remove the dedicated php-fpm config
-#ynh_remove_fpm_config
-
-#=================================================
-# REMOVE LOGROTATE CONFIGURATION
-#=================================================
-ynh_print_info "Removing logrotate configuration"
-
-# Remove the app-specific logrotate config
-ynh_remove_logrotate
-
-#=================================================
-# CLOSE A PORT
+# STORE SETTINGS FROM MANIFEST
 #=================================================
 
-if yunohost firewall list | grep -q "\- $port$"
-then
-	ynh_print_info "Closing port $port"
-	ynh_exec_warn_less yunohost firewall disallow TCP $port
-fi
+ynh_app_setting_set $app domain $domain
+ynh_app_setting_set $app path $path_url
+ynh_app_setting_set $app is_public $is_public
 
 #=================================================
-# SPECIFIC REMOVE
-#=================================================
-# REMOVE THE CRON FILE
+# FIND AND OPEN A PORT
 #=================================================
 
-# Remove a cron file
-ynh_secure_remove "/etc/cron.d/$app"
+### Use these lines if you have to open a port for the application
+### `ynh_find_port` will find the first available port starting from the given port.
+### If you're not using these lines:
+###		- Remove the section "CLOSE A PORT" in the remove script
 
-# Remove a directory securely
-ynh_secure_remove "/etc/$app/"
+# Find a free port
+port=$(ynh_find_port 3000)
+# Open this port
+yunohost firewall allow --no-upnp TCP $port 2>&1
+ynh_app_setting_set $app port $port
 
-# Remove the log files
-ynh_secure_remove "/var/log/$app/"
+#==============================================
+# INSTALL POSTGRES
+#==============================================
+
+ynh_install_app_dependencies postgresql apt-transport-https
+
+#=================================================
+# INSTALL NODEJS
+#=================================================
+# Use Helper instead of package from the repo
+
+ynh_install_nodejs 6
+
+#==============================================
+# CREATE DB
+#==============================================
+
+db_user=$app
+db_name=$app
+db_pass=$(ynh_string_random 20)
+ynh_app_setting_set $app db_pass $db_pass
+
+# Create postgresql database
+ynh_psql_test_if_first_run
+ynh_psql_create_user $db_user $db_pass
+ynh_psql_execute_as_root \
+"CREATE DATABASE $db_name ENCODING 'UTF8' LC_COLLATE='C' LC_CTYPE='C' template=template0 OWNER $db_user;"
+
+#=================================================
+# DOWNLOAD, CHECK AND UNPACK SOURCE
+#=================================================
+
+ynh_app_setting_set $app final_path $final_path
+# Download, check integrity, uncompress and patch the source from app.src
+ynh_setup_source "$final_path"
+
+#=================================================
+# MODIFY A CONFIG FILE
+#=================================================
+
+# Main config File
+ynh_replace_string "__DB_USER__" "$db_user" "../conf/config.json.example"
+ynh_replace_string "__DB_NAME__" "$db_name" "../conf/config.json.example"
+ynh_replace_string "__DB_PASS__" "$db_pass" "../conf/config.json.example"
+cp ../conf/config.json.example $final_path/config.json
+
+# DB Config File
+ynh_replace_string "__DB_USER__" "$db_user" "../conf/.sequelizerc.example"
+ynh_replace_string "__DB_NAME__" "$db_name" "../conf/.sequelizerc.example"
+ynh_replace_string "__DB_PASS__" "$db_pass" "../conf/.sequelizerc.example"
+cp ../conf/.sequelizerc.example $final_path/.sequelizerc
+
+#==============================================
+# INSTALL CODIMD
+#==============================================
+
+pushd $final_path
+npm install
+npm run build
+node_modules/.bin/sequelize db:migrate
+popd
+
+#=================================================
+# NGINX CONFIGURATION
+#=================================================
+
+# Create a dedicated nginx config
+ynh_add_nginx_config
+
+#=================================================
+# SETUP SYSTEMD
+#=================================================
+
+#cp ../conf/systemd.service /etc/systemd/system/$app.service
+#ynh_replace_string "__NODEJS__" "$nodejs_use_version" "/etc/systemd/system/$app.service"
+#ynh_replace_string "__ENV_PATH__" "$PATH" "/etc/systemd/system/$app.service"
+#ynh_replace_string "__NODE__" "$nodejs_path" "/etc/systemd/system/$app.service"
+#ynh_add_systemd_config
+
+ynh_replace_string "__APP__" "$app" "../conf/systemd.service"
+ynh_replace_string "__FINALPATH__" "$final_path" "../conf/systemd.service"
+ynh_replace_string "__NODEJS__" "$nodejs_use_version" "../conf/systemd.service"
+ynh_replace_string "__ENV_PATH__" "$PATH" "../conf/systemd.service"
+ynh_replace_string "__NODE__" "$nodejs_path" "../conf/systemd.service"
+cp ../conf/systemd.service /etc/systemd/system/$app.service
+ynh_add_systemd_config
+
+#=================================================
+# CREATE DEDICATED USER
+#=================================================
+
+# Create a system user
+ynh_system_user_create $app
+
+#=================================================
+# STORE THE CONFIG FILE CHECKSUM
+#=================================================
+
+### `ynh_store_file_checksum` is used to store the checksum of a file.
+### That way, during the upgrade script, by using `ynh_backup_if_checksum_is_different`,
+### you can make a backup of this file before modifying it again if the admin had modified it.
+
+# Calculate and store the config file checksum into the app settings
+ynh_store_file_checksum "$final_path/config.json"
+
 
 #=================================================
 # GENERIC FINALIZATION
 #=================================================
-# REMOVE DEDICATED USER
-#=================================================
-ynh_print_info "Removing the dedicated system user"
-
-# Delete a system user
-ynh_system_user_delete $app
-
-#=================================================
-# END OF SCRIPT
+# SECURE FILES AND DIRECTORIES
 #=================================================
 
-ynh_print_info "Removal of $app completed"
+### For security reason, any app should set the permissions to root: before anything else.
+### Then, if write authorization is needed, any access should be given only to directories
+### that really need such authorization.
+
+# Set permissions to app files
+chown -R $app:$app $final_path
+
+
+#=================================================
+# SETUP SSOWAT
+#=================================================
+
+# If app is public, add url to SSOWat conf as skipped_uris
+if [ $is_public -eq 1 ]; then
+  # unprotected_uris allows SSO credentials to be passed anyway.
+  ynh_app_setting_set "$app" unprotected_uris "/"
+fi
+
+# Reload services
+systemctl enable codimd
+systemctl start codimd
+systemctl restart nginx
