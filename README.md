@@ -13,10 +13,10 @@ CodiMD Server
 
  1. App can be installed by YunoHost **admin web-interface** or by **running following command**:
 
-         $ sudo yunohost app install --debug https://github.com/YunoHost-Apps/codimd_ynh
+         $ sudo yunohost app install https://github.com/YunoHost-Apps/codimd_ynh
 
  
 ### Upgrade this package:
 
-        $ sudo yunohost app upgrade --verbose example -u https://github.com/YunoHost-Apps/codimd_ynh
+        $ sudo yunohost app upgrade codimd -u https://github.com/YunoHost-Apps/codimd_ynh
 
