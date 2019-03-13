@@ -14,7 +14,6 @@ CodiMD Server
  1. App can be installed by YunoHost **admin web-interface** or by **running following command**:
 
          $ sudo yunohost app install --debug https://github.com/YunoHost-Apps/codimd_ynh
- 1. Admin username is : **root**.
 
  
 ### Upgrade this package:
