@@ -80,7 +80,7 @@ ynh_install_app_dependencies postgresql apt-transport-https
 #=================================================
 # Use Helper instead of package from the repo
 
-ynh_install_nodejs 6
+ynh_install_nodejs 10
 
 #==============================================
 # CREATE DB
