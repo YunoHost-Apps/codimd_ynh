@@ -1,10 +1,10 @@
 # CodiMD app for YunoHost
 CodiMD Server
 
-**Shipped version:** 1.2.1
+**Shipped version:** 1.3.2
 
 - [Yunohost project](https://yunohost.org)
-- [CodiMD website](https://github.com/hackmdio/codimd/)
+- [CodiMD website](https://github.com/codimd/server)
 
 ![](https://res-4.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco/xk9kzyfebpc16ryhpxlk)
 
