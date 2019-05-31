@@ -1,7 +1,7 @@
 # CodiMD app for YunoHost
 CodiMD Server
 
-**Shipped version:** 1.2.1
+**Shipped version:** 1.4.0
 
 - [Yunohost project](https://yunohost.org)
 - [CodiMD website](https://github.com/codimd/server/)
