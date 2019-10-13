@@ -3,8 +3,8 @@
     "id": "codimd",
     "packaging_format": 1,
     "description": {
-        "en": "CodiMD package for YunoHost.",
-        "fr": "CodiMD pour YunoHost."
+        "en": "Platform for realtime collaborative work on markdown documents",
+        "fr": "Travaillez collaborativement et en temps réel sur des documents markdown"
     },
     "version": "1.2.1",
     "url": "https://github.com/hackmdio/codimd/",
