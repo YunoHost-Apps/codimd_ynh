@@ -6,7 +6,7 @@
         "en": "CodiMD package for YunoHost.",
         "fr": "CodiMD pour YunoHost."
     },
-    "version": "1.2.1",
+    "version": "1.5.0~ynh1",
     "url": "https://github.com/hackmdio/codimd/",
     "license": "free",
     "maintainer": {
