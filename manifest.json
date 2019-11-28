@@ -10,8 +10,6 @@
     "url": "https://github.com/codimd/server",
     "license": "AGPL-v3",
     "maintainer": {
-        "name": "liberodark",
-        "email": "liberodark@gmail.com"
     },
     "requirements": {
         "yunohost": ">= 3.6"
