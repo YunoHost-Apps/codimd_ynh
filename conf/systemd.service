@@ -1,5 +1,5 @@
 [Unit]
-Description=CodiMD service.
+Description=__APP__ daemon
 After=syslog.target network.target
 
 [Service]
@@ -8,8 +8,8 @@ User=__APP__
 Group=__APP__
 WorkingDirectory=__FINALPATH__
 Environment="PATH=__ENV_PATH__"
-#ExecStart=__NODE__ __NODEJS__ app.js
-ExecStart=/opt/node_n/n/versions/node/6/bin/node app.js
+Environment="NODE_ENV=production"
+ExecStart=/usr/bin/yarn start
 Restart=always
 
 [Install]
