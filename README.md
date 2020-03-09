@@ -2,7 +2,7 @@
 
 A collaborative editor to work on notes written in Markdown
 
-**Shipped version:** 1.5.0
+**Shipped version:** 1.6.0
 
 **Status**: In progress, do *not* consider this app as stable and fully working (yet)
 
