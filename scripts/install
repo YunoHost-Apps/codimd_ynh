@@ -108,7 +108,21 @@ cp ../conf/.sequelizerc.example "$final_path"/.sequelizerc
 ynh_script_progression --message="Building application... (this may take some time and resources!)"
 
 pushd "$final_path" || exit
-./bin/setup
+
+# ---- This is copypasta from https://raw.githubusercontent.com/codimd/server/master/bin/setup
+if [ ! -f config.json ]; then
+  cp config.json.example config.json
+fi
+
+if [ ! -f .sequelizerc ]; then
+  cp .sequelizerc.example .sequelizerc
+fi
+
+yarn install
+yarn install --production=false  # FIXME: this doesn't sounds like what we want to have for a real deployment ? idk
+# ---- End copypasta from https://raw.githubusercontent.com/codimd/server/master/bin/setup
+
+
 yarn run build
 #node_modules/.bin/sequelize db:migrate
 popd || exit
