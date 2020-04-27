@@ -36,7 +36,7 @@
                     "en": "Is it a public site ?",
                     "fr": "Est-ce un site public ?"
                 },
-                "default": "true"
+                "default": true
             }
         ]
     }

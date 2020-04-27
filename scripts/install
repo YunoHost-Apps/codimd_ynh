@@ -64,7 +64,7 @@ ynh_install_app_dependencies postgresql apt-transport-https
 # Install Yarn
 ynh_install_extra_app_dependencies --repo="deb https://dl.yarnpkg.com/debian/ stable main" --package="yarn" --key="https://dl.yarnpkg.com/debian/pubkey.gpg"
 
-ynh_install_nodejs 8
+ynh_install_nodejs 10
 
 #==============================================
 # CREATE DB
@@ -105,10 +105,23 @@ cp ../conf/.sequelizerc.example "$final_path"/.sequelizerc
 #==============================================
 # INSTALL CODIMD
 #==============================================
-ynh_script_progression --message="Building application... (this may take some time and resources!)"
+ynh_script_progression --message="Building application... (this will take some time and resources!)"
 
 pushd "$final_path" || exit
-./bin/setup
+
+# ---- This is copypasta from https://raw.githubusercontent.com/codimd/server/master/bin/setup
+if [ ! -f config.json ]; then
+  cp config.json.example config.json
+fi
+
+if [ ! -f .sequelizerc ]; then
+  cp .sequelizerc.example .sequelizerc
+fi
+
+yarn install --non-interactive
+yarn install --non-interactive --production=false  # FIXME: this doesn't sounds like what we want to have for a real deployment ? idk
+# ---- End copypasta from https://raw.githubusercontent.com/codimd/server/master/bin/setup
+
 yarn run build
 #node_modules/.bin/sequelize db:migrate
 popd || exit
