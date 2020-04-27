@@ -105,7 +105,7 @@ cp ../conf/.sequelizerc.example "$final_path"/.sequelizerc
 #==============================================
 # INSTALL CODIMD
 #==============================================
-ynh_script_progression --message="Building application... (this may take some time and resources!)"
+ynh_script_progression --message="Building application... (this will take some time and resources!)"
 
 pushd "$final_path" || exit
 
@@ -118,10 +118,9 @@ if [ ! -f .sequelizerc ]; then
   cp .sequelizerc.example .sequelizerc
 fi
 
-yarn install
-yarn install --production=false  # FIXME: this doesn't sounds like what we want to have for a real deployment ? idk
+yarn install --non-interactive
+yarn install --non-interactive --production=false  # FIXME: this doesn't sounds like what we want to have for a real deployment ? idk
 # ---- End copypasta from https://raw.githubusercontent.com/codimd/server/master/bin/setup
-
 
 yarn run build
 #node_modules/.bin/sequelize db:migrate
