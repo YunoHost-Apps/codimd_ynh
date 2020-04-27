@@ -1,5 +1,5 @@
-SOURCE_URL=https://github.com/codimd/server/archive/1.3.2.tar.gz
-SOURCE_SUM=0d451ac4eb8b589b6933d0956372066d184179e1d6e5a6b2194c4ebcc20df791
+SOURCE_URL=https://github.com/codimd/server/archive/1.6.0.tar.gz
+SOURCE_SUM=3639eaf70a37ee0513c75259c70b3d0c2c10116e9b2989dc9c571f98017120bd
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=tar.gz
 SOURCE_IN_SUBDIR=true
