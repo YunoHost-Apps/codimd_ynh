@@ -6,7 +6,7 @@
         "en": "A collaborative editor to work on notes written in Markdown",
         "fr": "Un éditeur collaboratif pour travailler sur des notes en Markdown"
     },
-    "version": "1.5.0~ynh1",
+    "version": "1.6.0~ynh1",
     "url": "https://github.com/codimd/server",
     "license": "AGPL-v3",
     "maintainer": {
