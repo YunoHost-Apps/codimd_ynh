@@ -7,6 +7,7 @@
 #=================================================
 
 source ynh_add_extra_apt_repos__3
+source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
@@ -59,12 +60,12 @@ ynh_app_setting_set "$app" final_path "$final_path"
 #==============================================
 ynh_script_progression --message="Installing dependencies..."
 
-ynh_install_app_dependencies postgresql apt-transport-https
+ynh_install_app_dependencies $pkg_dependencies
 
 # Install Yarn
 ynh_install_extra_app_dependencies --repo="deb https://dl.yarnpkg.com/debian/ stable main" --package="yarn" --key="https://dl.yarnpkg.com/debian/pubkey.gpg"
 
-ynh_install_nodejs 10
+ynh_install_nodejs --nodejs_version=$nodejs_version
 
 #==============================================
 # CREATE DB
