@@ -22,4 +22,7 @@ Links:
 
 ![](https://demo.codimd.org/screenshot.png)
 
+### Advanced configuration
+
+If you need to configure your CodiMD, you can tweak your `config.json` file, using this documentation: https://github.com/codimd/server/blob/master/docs/configuration-config-file.md
 
