@@ -1,16 +1,17 @@
 [Unit]
 Description=__APP__ daemon
-After=syslog.target network.target
+After=network.target
+After=mysql.service
 
 [Service]
 Type=simple
-User=__APP__
-Group=__APP__
 WorkingDirectory=__FINALPATH__
 Environment="PATH=__ENV_PATH__"
 Environment="NODE_ENV=production"
 ExecStart=/usr/bin/yarn start
 Restart=always
+PrivateTmp=true
+PrivateDevices=true
 
 [Install]
 WantedBy=multi-user.target

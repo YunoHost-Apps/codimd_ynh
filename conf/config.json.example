@@ -1,4 +1,3 @@
-
 {
     "production": {
         "protocolUseSSL": true,
@@ -7,7 +6,7 @@
         "loglevel": "info",
         "useCDN": false,
         "allowGravatar": false,
-        "allowPDFExport": true,
+        "allowPDFExport": false,
         "hsts": {
             "enable": true,
             "maxAgeSeconds": 31536000,
@@ -21,15 +20,19 @@
             "upgradeInsecureRequests": "auto",
             "addDefaults": true,
             "addDisqus": true,
-            "addGoogleAnalytics": true
+            "addGoogleAnalytics": false
         },
         "db": {
             "username": "__DB_USER__",
             "password": "__DB_PASS__",
             "database": "__DB_NAME__",
             "host": "localhost",
-            "port": "5432",
-            "dialect": "postgres"
-        }
+            "port": "3306",
+            "dialect": "mysql"
+        },
+#        "github": {
+#            "clientID": "YOUR_clientID",
+#            "clientSecret": "YOUR_clientSecret"
+#        }
     }
 }

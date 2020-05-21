@@ -1,5 +1,23 @@
 #!/bin/bash
 
+#=================================================
+# COMMON VARIABLES
+#=================================================
+
+# dependencies used by the app
+pkg_dependencies="apt-transport-https"
+
+nodejs_version="10"
+
+#=================================================
+# PERSONAL HELPERS
+#=================================================
+
+#=================================================
+# EXPERIMENTAL HELPERS
+#=================================================
+#!/bin/bash
+
 # Pin a repository.
 #
 # usage: ynh_pin_repo --package=packages --pin=pin_filter [--priority=priority_value] [--name=name] [--append]
@@ -36,8 +54,8 @@ ynh_pin_repo () {
 
 	mkdir -p "/etc/apt/preferences.d"
 	echo "Package: $package
-Pin: $pin
-Pin-Priority: $priority" \
+		  Pin: $pin
+          Pin-Priority: $priority" \
 	| $append "/etc/apt/preferences.d/$name"
 }
 
@@ -207,65 +225,6 @@ ynh_install_extra_app_dependencies () {
 
 	# Remove this extra repository after packages are installed
 	ynh_remove_extra_repo --name="$app"
-}
-
-#=================================================
-
-# patched version of ynh_install_app_dependencies to be used with ynh_add_app_dependencies
-
-# Define and install dependencies with a equivs control file
-# This helper can/should only be called once per app
-#
-# usage: ynh_install_app_dependencies dep [dep [...]]
-# | arg: dep - the package name to install in dependence
-#   You can give a choice between some package with this syntax : "dep1|dep2"
-#   Example : ynh_install_app_dependencies dep1 dep2 "dep3|dep4|dep5"
-#   This mean in the dependence tree : dep1 & dep2 & (dep3 | dep4 | dep5)
-#
-# Requires YunoHost version 2.6.4 or higher.
-ynh_install_app_dependencies () {
-    local dependencies=$@
-    dependencies="$(echo "$dependencies" | sed 's/\([^\<=\>]\)\ \([^(]\)/\1, \2/g')"
-    dependencies=${dependencies//|/ | }
-    local manifest_path="../manifest.json"
-    if [ ! -e "$manifest_path" ]; then
-    	manifest_path="../settings/manifest.json"	# Into the restore script, the manifest is not at the same place
-    fi
-
-    local version=$(grep '\"version\": ' "$manifest_path" | cut -d '"' -f 4)	# Retrieve the version number in the manifest file.
-    if [ ${#version} -eq 0 ]; then
-        version="1.0"
-    fi
-    local dep_app=${app//_/-}	# Replace all '_' by '-'
-
-    # Handle specific versions
-    if [[ "$dependencies" =~ [\<=\>] ]]
-    then
-        # Replace version specifications by relationships syntax
-        # https://www.debian.org/doc/debian-policy/ch-relationships.html
-        # Sed clarification
-        # [^(\<=\>] ignore if it begins by ( or < = >. To not apply twice.
-        # [\<=\>] matches < = or >
-        # \+ matches one or more occurence of the previous characters, for >= or >>.
-        # [^,]\+ matches all characters except ','
-        # Ex: package>=1.0 will be replaced by package (>= 1.0)
-        dependencies="$(echo "$dependencies" | sed 's/\([^(\<=\>]\)\([\<=\>]\+\)\([^,]\+\)/\1 (\2 \3)/g')"
-    fi
-
-    cat > /tmp/"${dep_app}"-ynh-deps.control << EOF	# Make a control file for equivs-build
-Section: misc
-Priority: optional
-Package: ${dep_app}-ynh-deps
-Version: ${version}
-Depends: ${dependencies}
-Architecture: all
-Description: Fake package for $app (YunoHost app) dependencies
- This meta-package is only responsible of installing its dependencies.
-EOF
-    ynh_package_install_from_equivs /tmp/"${dep_app}"-ynh-deps.control \
-        || ynh_die --message="Unable to install dependencies"	# Install the fake package and its dependencies
-    rm /tmp/"${dep_app}"-ynh-deps.control
-    ynh_app_setting_set --app="$app" --key=apt_dependencies --value="$dependencies"
 }
 
 ynh_add_app_dependencies () {
