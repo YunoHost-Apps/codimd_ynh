@@ -156,8 +156,46 @@ ynh_script_progression --message="Making sure dedicated system user exists..." -
 # Create a dedicated user (if not existing)
 ynh_system_user_create --username=$app
 
+
+
+
+
 #=================================================
 # SPECIFIC UPGRADE
+#=================================================
+# STORE THE CONFIG FILE CHECKSUM
+#=================================================
+
+### Verify the checksum of a file, stored by `ynh_store_file_checksum` in the install script.
+### And create a backup of this file if the checksum is different. So the file will be backed up if the admin had modified it.
+ynh_backup_if_checksum_is_different --file="$final_path/config.json"
+ynh_backup_if_checksum_is_different --file="$final_path/.sequelizerc"
+
+
+# Main config File
+ynh_replace_string --match_string="__PORT__"      --replace_string="$port"         --target_file="../conf/config.json.example"
+ynh_replace_string --match_string="__DOMAIN__"    --replace_string="$domain"       --target_file="../conf/config.json.example"
+ynh_replace_string --match_string="__PATH__"      --replace_string="${path_url:1}" --target_file="../conf/config.json.example"
+ynh_replace_string --match_string="__DB_USER__"   --replace_string="$db_user"      --target_file="../conf/config.json.example"
+ynh_replace_string --match_string="__DB_NAME__"   --replace_string="$db_name"      --target_file="../conf/config.json.example"
+ynh_replace_string --match_string="__DB_PASS__"   --replace_string="$db_pwd"       --target_file="../conf/config.json.example"
+cp ../conf/config.json.example "$final_path"/config.json
+ynh_store_file_checksum "$final_path/config.json"
+
+# DB Config File
+ynh_replace_string --match_string="__DB_USER__"   --replace_string="$db_user"      --target_file="../conf/.sequelizerc.example"
+ynh_replace_string --match_string="__DB_NAME__"   --replace_string="$db_name"      --target_file="../conf/.sequelizerc.example"
+ynh_replace_string --match_string="__DB_PASS__"   --replace_string="$db_pwd"       --target_file="../conf/.sequelizerc.example"
+cp ../conf/.sequelizerc.example "$final_path"/.sequelizerc
+
+# Recalculate and store the checksum of the file for the next upgrade.
+ynh_store_file_checksum --file="$final_path/config.json"
+ynh_store_file_checksum --file="$final_path/.sequelizerc"
+
+
+
+
+
 #=================================================
 # SETUP LOGROTATE
 #=================================================
