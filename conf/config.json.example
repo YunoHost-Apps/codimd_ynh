@@ -29,10 +29,6 @@
             "host": "localhost",
             "port": "3306",
             "dialect": "mysql"
-        },
-#        "github": {
-#            "clientID": "YOUR_clientID",
-#            "clientSecret": "YOUR_clientSecret"
-#        }
+        }
     }
 }
