@@ -111,14 +111,13 @@ ynh_replace_string --match_string="__DB_USER__"   --replace_string="$db_user"   
 ynh_replace_string --match_string="__DB_NAME__"   --replace_string="$db_name"      --target_file="../conf/config.json.example"
 ynh_replace_string --match_string="__DB_PASS__"   --replace_string="$db_pwd"       --target_file="../conf/config.json.example"
 cp ../conf/config.json.example "$final_path"/config.json
-ynh_store_file_checksum --file="$final_path/config.json"
+ynh_store_file_checksum "$final_path/config.json"
 
 # DB Config File
 ynh_replace_string --match_string="__DB_USER__"   --replace_string="$db_user"      --target_file="../conf/.sequelizerc.example"
 ynh_replace_string --match_string="__DB_NAME__"   --replace_string="$db_name"      --target_file="../conf/.sequelizerc.example"
 ynh_replace_string --match_string="__DB_PASS__"   --replace_string="$db_pwd"       --target_file="../conf/.sequelizerc.example"
 cp ../conf/.sequelizerc.example "$final_path"/.sequelizerc
-ynh_store_file_checksum --file="$final_path/.sequelizerc"
 
 #==============================================
 # INSTALL CODIMD
