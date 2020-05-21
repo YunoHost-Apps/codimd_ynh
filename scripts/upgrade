@@ -178,7 +178,7 @@ ynh_replace_string --match_string="__NODE__"      --replace_string="$nodejs_path
 
 ynh_add_systemd_config
 
-yunohost service add "$app" --description "CodiMD daemon" --log="/var/log/$app/$app.log"
+yunohost service add "$app" --description "Collaborative Markdown notes" --log="/var/log/$app/$app.log"
 
 #=================================================
 # SECURE FILES AND DIRECTORIES

@@ -1,5 +1,5 @@
 [Unit]
-Description=Collaborative Markdown notes
+Description=__APP__: collaborative Markdown notes
 After=network.target
 After=mysql.service
 
