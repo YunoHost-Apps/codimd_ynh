@@ -1,5 +1,5 @@
 [Unit]
-Description=__APP__ daemon
+Description=Collaborative Markdown notes
 After=network.target
 After=mysql.service
 
