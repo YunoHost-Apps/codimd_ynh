@@ -24,7 +24,7 @@ Collaborative editor to work on notes written in Markdown.
 
 ## Configuration
 
-If you need to configure CodiMD, you can tweak /var/www/codimd/config.json file using this [documentation](https://github.com/codimd/server/blob/master/docs/configuration-config-file.md)
+If you need to configure CodiMD, you can tweak `/var/www/codimd/config.json` file using this [documentation](https://github.com/codimd/server/blob/master/docs/configuration-config-file.md)
 
 ## Documentation
 

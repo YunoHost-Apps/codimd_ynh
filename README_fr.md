@@ -23,9 +23,7 @@ Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour
 
 ## Configuration
 
-Français
-
-Si vous voulez configurer CodiMD, vous pouvez modifier votre fichier /var/www/codimd/config.json en vous aidant de la [documentation](https://github.com/codimd/server/blob/master/docs/configuration-config-file.md)
+Si vous voulez configurer CodiMD, vous pouvez modifier votre fichier `/var/www/codimd/config.json` en vous aidant de la [documentation](https://github.com/codimd/server/blob/master/docs/configuration-config-file.md)
 
 ## Documentation
 
