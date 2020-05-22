@@ -27,8 +27,8 @@
             "password": "__DB_PASS__",
             "database": "__DB_NAME__",
             "host": "localhost",
-            "port": "3306",
-            "dialect": "mysql"
+            "port": "5432",
+            "dialect": "postgres"
         }
     }
 }
