@@ -50,11 +50,11 @@ ynh_backup --src_path="$final_path"
 ynh_backup --src_path="/etc/nginx/conf.d/$domain.d/$app.conf"
 
 #=================================================
-# BACKUP THE DATABASE
+# BACKUP THE MYSQL DATABASE
 #=================================================
 ynh_print_info --message="Backing up the database..."
 
-ynh_psql_dump_db --database="$db_name" > db.sql
+ynh_mysql_dump_db --database="$db_name" > db.sql
 
 #=================================================
 # SPECIFIC BACKUP

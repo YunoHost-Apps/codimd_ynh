@@ -89,13 +89,13 @@ ynh_install_extra_app_dependencies --repo="deb https://dl.yarnpkg.com/debian/ st
 ynh_exec_warn_less ynh_install_nodejs --nodejs_version="$nodejs_version"
 
 #=================================================
-# RESTORE THE DATABASE
+# RESTORE THE MYSQL DATABASE
 #=================================================
-ynh_script_progression --message="Restoring the database..." --weight=6
+ynh_script_progression --message="Restoring the MySQL database..." --weight=6
 
-db_pwd=$(ynh_app_setting_get --app=$app --key=psqlpwd)
-ynh_psql_setup_db --db_user=$db_user --db_name=$db_name --db_pwd=$db_pwd
-ynh_psql_connect_as --user=$db_user --password=$db_pwd --database=$db_name < ./db.sql
+db_pwd=$(ynh_app_setting_get --app=$app --key=mysqlpwd)
+ynh_mysql_setup_db --db_user=$db_user --db_name=$db_name --db_pwd=$db_pwd
+ynh_mysql_connect_as --user=$db_user --password=$db_pwd --database=$db_name < ./db.sql
 
 #=================================================
 # RESTORE SYSTEMD

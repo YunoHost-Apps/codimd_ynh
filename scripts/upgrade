@@ -24,7 +24,7 @@ port=$(ynh_app_setting_get --app=$app --key=port)
 
 db_name=$(ynh_app_setting_get --app=$app --key=app)
 db_user=$(ynh_app_setting_get --app=$app --key=app)
-db_pwd=$(ynh_app_setting_get --app=$app --key=psqlwd)
+db_pwd=$(ynh_app_setting_get --app=$app --key=mysqlpwd)
 
 #=================================================
 # CHECK VERSION
