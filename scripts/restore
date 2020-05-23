@@ -32,6 +32,7 @@ final_path=$(ynh_app_setting_get --app=$app --key=final_path)
 port=$(ynh_app_setting_get --app=$app --key=port)
 db_name=$(ynh_app_setting_get --app=$app --key=db_name)
 db_user=$(ynh_app_setting_get --app=$app --key=db_user)
+db_pwd=$(ynh_app_setting_get --app=$app --key=db_pwd)
 
 #=================================================
 # CHECK IF THE APP CAN BE RESTORED
@@ -64,7 +65,7 @@ ynh_restore_file --origin_path="$final_path"
 ynh_script_progression --message="Recreating the dedicated system user..." --weight=1
 
 # Create the dedicated user (if not existing)
-ynh_system_user_create --username=$app
+ynh_system_user_create --username="$app"
 
 #=================================================
 # RESTORE USER RIGHTS
@@ -89,13 +90,13 @@ ynh_install_extra_app_dependencies --repo="deb https://dl.yarnpkg.com/debian/ st
 ynh_exec_warn_less ynh_install_nodejs --nodejs_version="$nodejs_version"
 
 #=================================================
-# RESTORE THE MYSQL DATABASE
+# RESTORE THE DATABASE
 #=================================================
-ynh_script_progression --message="Restoring the MySQL database..." --weight=6
+ynh_script_progression --message="Restoring the database..." --weight=6
 
-db_pwd=$(ynh_app_setting_get --app=$app --key=mysqlpwd)
-ynh_mysql_setup_db --db_user=$db_user --db_name=$db_name --db_pwd=$db_pwd
-ynh_mysql_connect_as --user=$db_user --password=$db_pwd --database=$db_name < ./db.sql
+ynh_psql_test_if_first_run
+ynh_psql_setup_db --db_user="$db_user" --db_name="$db_name" --db_pwd="$db_pwd"
+ynh_psql_execute_file_as_root --file="./db.sql" --database="$db_name"
 
 #=================================================
 # RESTORE SYSTEMD

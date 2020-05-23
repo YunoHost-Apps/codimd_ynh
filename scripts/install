@@ -39,7 +39,7 @@ final_path=/var/www/$app
 test ! -e "$final_path" || ynh_die "This path already contains a folder"
 
 # Register (book) web path
-ynh_webpath_register "$app" "$domain" $path_url
+ynh_webpath_register --app="$app" --domain="$domain" --path_url="$path_url"
 
 #=================================================
 # FIND AND OPEN A PORT
@@ -68,7 +68,7 @@ ynh_script_progression --message="Installing dependencies..." --weight=20
 ynh_install_app_dependencies $pkg_dependencies
 
 # Install Nodejs
-ynh_exec_warn_less ynh_install_nodejs --nodejs_version=$nodejs_version
+ynh_exec_warn_less ynh_install_nodejs --nodejs_version="$nodejs_version"
 
 # Install Yarn
 ynh_install_extra_app_dependencies --repo="deb https://dl.yarnpkg.com/debian/ stable main" --package="yarn" --key="https://dl.yarnpkg.com/debian/pubkey.gpg"
@@ -80,8 +80,14 @@ ynh_script_progression --message="Creating a database..." --weight=2
 
 db_name=$(ynh_sanitize_dbid --db_name=$app)
 db_user=$db_name
+db_pwd=$(ynh_string_random --length=30)
+
+ynh_app_setting_set --app="$app" --key="db_pwd" --value="$db_pwd"
 ynh_app_setting_set --app="$app" --key="db_name" --value="$db_name"
-ynh_mysql_setup_db --db_user="$db_user" --db_name="$db_name"
+ynh_app_setting_set --app="$app" --key="db_user" --value="$db_user"
+
+ynh_psql_test_if_first_run
+ynh_psql_setup_db --db_user="$db_user" --db_name="$db_name" --db_pwd="$db_pwd"
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE

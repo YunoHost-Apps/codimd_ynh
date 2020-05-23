@@ -22,10 +22,6 @@ is_public=$(ynh_app_setting_get --app=$app --key=is_public)
 final_path=$(ynh_app_setting_get --app=$app --key=final_path)
 port=$(ynh_app_setting_get --app=$app --key=port)
 
-db_name=$(ynh_app_setting_get --app=$app --key=app)
-db_user=$(ynh_app_setting_get --app=$app --key=app)
-db_pwd=$(ynh_app_setting_get --app=$app --key=mysqlpwd)
-
 #=================================================
 # CHECK VERSION
 #=================================================
@@ -124,7 +120,7 @@ fi
 ynh_script_progression --message="Making sure dedicated system user exists..." --weight=1
 
 # Create a dedicated user (if not existing)
-ynh_system_user_create --username=$app
+ynh_system_user_create --username="$app"
 
 #=================================================
 # SPECIFIC UPGRADE
@@ -170,7 +166,7 @@ ynh_script_progression --message="Upgrading SSOwat configuration..." --weight=2
 #=================================================
 ynh_script_progression --message="Starting a systemd service..." --weight=1
 
-ynh_systemd_action --service_name=$app --action="start" --log_path="systemd" --line_match="HTTP Server listening"
+ynh_systemd_action --service_name="$app" --action="start" --log_path="systemd" --line_match="HTTP Server listening"
 
 #=================================================
 # RELOAD NGINX
