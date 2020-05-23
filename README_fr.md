@@ -6,7 +6,7 @@
 *[Read this readme in english.](./README.md)* 
 
 > *Ce package vous permet d’installer CodiMD rapidement et simplement sur un serveur Yunohost.  
-Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour savoir comment l’installer et en profiter.*
+Si vous n’avez pas YunoHost, consultez [le guide](https://yunohost.org/#/install) pour apprendre comment l’installer.*
 
 ## Vue d’ensemble
 Éditeur collaboratif pour travailler sur des notes en Markdown.
@@ -28,7 +28,7 @@ Si vous voulez configurer CodiMD, vous pouvez modifier votre fichier `/var/www/c
 ## Documentation
 
  * Documentation officielle : https://hackmd.io/c/codimd-documentation/
- * Documentation YunoHost : Si une documentation spécifique est nécessaire, n’hésitez pas à contribuer.
+ * Documentation YunoHost : https://yunohost.org/#/app_codimd_fr
 
 ## Caractéristiques spécifiques YunoHost
 

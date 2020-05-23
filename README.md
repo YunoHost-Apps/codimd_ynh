@@ -29,7 +29,7 @@ If you need to configure CodiMD, you can tweak `/var/www/codimd/config.json` fil
 ## Documentation
 
  * Official documentation: https://hackmd.io/c/codimd-documentation/
- * YunoHost documentation: If specific documentation is needed, feel free to contribute.
+ * YunoHost documentation: https://yunohost.org/#/app_codimd
 
 ## YunoHost specific features
 
