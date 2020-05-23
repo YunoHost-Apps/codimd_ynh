@@ -5,6 +5,8 @@ After=postgresql.service
 
 [Service]
 Type=simple
+User=__APP__
+Group=__APP__
 WorkingDirectory=__FINALPATH__
 Environment="PATH=__ENV_PATH__"
 Environment="NODE_ENV=production"
