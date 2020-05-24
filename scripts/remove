@@ -64,7 +64,7 @@ ynh_remove_nodejs
 #=================================================
 # REMOVE APP MAIN DIR
 #=================================================
-ynh_script_progression --message="Removing app main directory..." --weight=6
+ynh_script_progression --message="Removing $app main directory..." --weight=6
 
 # Remove the app directory securely
 ynh_secure_remove --file="$final_path"

@@ -100,7 +100,7 @@ ynh_setup_source --dest_dir="$final_path"
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
-ynh_script_progression --message="Configuring nginx web server..." --weight=2
+ynh_script_progression --message="Configuring Nginx web server..." --weight=2
 
 # Create a dedicated nginx config
 ynh_add_nginx_config
@@ -128,7 +128,7 @@ cp ../conf/.sequelizerc.example "$final_path"/.sequelizerc
 #==============================================
 # INSTALL CODIMD
 #==============================================
-ynh_script_progression --message="Building application... (this will take some time and resources!)" --weight=240
+ynh_script_progression --message="Building $app... (this will take some time and resources!)" --weight=240
 
 pushd "$final_path" || ynh_die
 
