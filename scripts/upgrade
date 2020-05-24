@@ -81,6 +81,28 @@ then
 fi
 
 #=================================================
+# SPECIFIC UPGRADE
+#=================================================
+# MODIFY A CONFIG FILE
+#=================================================
+ynh_script_progression --message="Modifying a config file..." --weight=2
+
+ynh_backup_if_checksum_is_different --file="$final_path/config.json"
+
+# Main config File
+ynh_replace_string --match_string="__PORT__"      --replace_string="$port"         --target_file="../conf/config.json.example"
+ynh_replace_string --match_string="__DOMAIN__"    --replace_string="$domain"       --target_file="../conf/config.json.example"
+ynh_replace_string --match_string="__PATH__"      --replace_string="${path_url:1}" --target_file="../conf/config.json.example"
+ynh_replace_string --match_string="__DB_USER__"   --replace_string="$db_user"      --target_file="../conf/config.json.example"
+ynh_replace_string --match_string="__DB_NAME__"   --replace_string="$db_name"      --target_file="../conf/config.json.example"
+ynh_replace_string --match_string="__DB_PASS__"   --replace_string="$db_pwd"       --target_file="../conf/config.json.example"
+
+cp ../conf/config.json.example "$final_path/config.json"
+
+# Recalculate and store the checksum of the file for the next upgrade.
+ynh_store_file_checksum --file="$final_path/config.json"
+
+#=================================================
 # NGINX CONFIGURATION
 #=================================================
 ynh_script_progression --message="Upgrading Nginx web server configuration..." --weight=2
@@ -96,7 +118,7 @@ ynh_script_progression --message="Upgrading dependencies..." --weight=18
 # Install Yarn
 ynh_install_extra_app_dependencies --repo="deb https://dl.yarnpkg.com/debian/ stable main" --package="yarn" --key="https://dl.yarnpkg.com/debian/pubkey.gpg"
 
-ynh_exec_warn_less ynh_install_nodejs --nodejs_version=$nodejs_version
+ynh_exec_warn_less ynh_install_nodejs --nodejs_version="$nodejs_version"
 
 ynh_install_app_dependencies $pkg_dependencies
 
