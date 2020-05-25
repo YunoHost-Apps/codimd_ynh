@@ -32,12 +32,6 @@ db_name=$(ynh_app_setting_get --app=$app --key=db_name)
 #=================================================
 # DECLARE DATA AND CONF FILES TO BACKUP
 #=================================================
-# STOP SYSTEMD SERVICE
-#=================================================
-
-ynh_systemd_action --service_name="$app" --action="stop" --log_path="/var/log/$app/$app.log"
-
-#=================================================
 # BACKUP THE APP MAIN DIR
 #=================================================
 
@@ -69,12 +63,6 @@ ynh_backup --src_path="/etc/logrotate.d/$app"
 #=================================================
 
 ynh_backup --src_path="/etc/systemd/system/$app.service"
-
-#=================================================
-# START SYSTEMD SERVICE
-#=================================================
-
-ynh_systemd_action --service_name="$app" --action="start" --log_path="systemd" --line_match="HTTP Server listening"
 
 #=================================================
 # END OF SCRIPT
