@@ -48,7 +48,7 @@ ynh_script_progression --message="Configuring firewall..." --weight=2
 
 # Find an available port
 port=$(ynh_find_port --port=3000)
-ynh_app_setting_set --app="$app"  --key="port"  --value="$port"
+ynh_app_setting_set --app="$app" --key="port" --value="$port"
 
 #=================================================
 # STORE SETTINGS FROM MANIFEST

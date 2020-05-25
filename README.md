@@ -45,8 +45,6 @@ If you need to configure CodiMD, you can tweak `/var/www/codimd/config.json` fil
 
 ## Limitations
 
-**Status**: In progress, do *not* consider this app as stable and fully working (yet)
-
 ## Additional information
 
 ## Links

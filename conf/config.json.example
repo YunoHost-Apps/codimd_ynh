@@ -2,7 +2,7 @@
     "production": {
         "protocolUseSSL": true,
         "domain": "__DOMAIN__",
-        "port": __PORT__,
+        "port": "__PORT__",
         "loglevel": "info",
         "useCDN": false,
         "allowGravatar": false,

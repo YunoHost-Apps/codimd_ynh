@@ -44,8 +44,6 @@ Si vous voulez configurer CodiMD, vous pouvez modifier votre fichier `/var/www/c
 
 ## Limitations
 
-**Statut** : En cours, ne *pas encore* considérer cette application comme stable et fonctionnant. 
-
 ## Informations additionnelles
 
 ## Liens
