@@ -37,7 +37,7 @@
                     "fr": "Est-ce un site public ?"
                 },
                 "help": {
-                    "en": "If enabled, CodiMD will be accessible by people who doesn’t have an account. This can be changed later via the webadmin.",
+                    "en": "If enabled, CodiMD will be accessible by people who do not have an account. This can be changed later via the webadmin.",
                     "fr": "Si cette case est cochée, CodiMD sera accessible aux personnes n’ayant pas de compte. Vous pourrez changer ceci plus tard via la webadmin."
                 },
                 "default": true
