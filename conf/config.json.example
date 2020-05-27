@@ -29,6 +29,14 @@
             "host": "localhost",
             "port": "5432",
             "dialect": "postgres"
+        },
+        "ldap": {
+            "url": "ldap://127.0.0.1",
+            "bindDn": "ou=users,dc=yunohost,dc=org",
+            "bindCredentials": "<super secret password>",
+            "searchBase": "dc=internal,dc=example,dc=com",
+            "searchFilter": "(&(objectcategory=person)(objectclass=user)(|(sAMAccountName={{username}})(mail={{username}})))",
+            "useridField": "uid"
         }
     }
 }
