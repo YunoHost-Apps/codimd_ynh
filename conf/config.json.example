@@ -31,7 +31,7 @@
             "dialect": "postgres"
         },
         "ldap": {
-            "url": "ldap://127.0.0.1",
+            "url": "ldap://127.0.0.1:389",
             "bindDn": "ou=users,dc=yunohost,dc=org",
             "bindCredentials": "<super secret password>",
             "searchBase": "dc=internal,dc=example,dc=com",
