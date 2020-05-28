@@ -35,7 +35,7 @@ If you need to configure CodiMD, you can tweak `/var/www/codimd/config.json` fil
 
 #### Multi-users support
 
-* Is LDAP supported? No
+* Is LDAP supported? Yes
 * Can the app be used by multiple users? Yes
 
 #### Supported architectures

@@ -34,7 +34,7 @@ Si vous voulez configurer CodiMD, vous pouvez modifier votre fichier `/var/www/c
 
 #### Support multi-utilisateurs
 
-* L’authentification LDAP est-elle prise en charge ? Non
+* L’authentification LDAP est-elle prise en charge ? Oui
 * L’application peut-elle être utilisée par plusieurs utilisateurs ? Oui
 
 #### Architectures supportées
