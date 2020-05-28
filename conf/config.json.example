@@ -32,11 +32,15 @@
         },
         "ldap": {
             "url": "ldap://127.0.0.1:389",
-            "bindDn": "ou=users,dc=yunohost,dc=org",
-            "bindCredentials": "<super secret password>",
-            "searchBase": "dc=internal,dc=example,dc=com",
-            "searchFilter": "(&(objectcategory=person)(objectclass=user)(|(sAMAccountName={{username}})(mail={{username}})))",
+            "bindDn": null,
+            "bindCredentials": null,
+            "searchBase": "ou=users,dc=yunohost,dc=org",
+            "searchFilter": "(&(|(objectclass=posixAccount))(uid={{username}})(permission=cn=codimd.main,ou=permission,dc=yunohost,dc=org))",
+            "usernameField": "cn",
             "useridField": "uid"
-        }
+            }
     }
 }
+
+
+
