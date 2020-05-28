@@ -35,7 +35,7 @@
             "bindDn": null,
             "bindCredentials": null,
             "searchBase": "ou=users,dc=yunohost,dc=org",
-            "searchFilter": "(&(|(objectclass=posixAccount))(uid={{username}})(permission=cn=codimd.main,ou=permission,dc=yunohost,dc=org))",
+            "searchFilter": "(&(|(objectclass=posixAccount))(uid={{username}})(permission=cn=__APP__.main,ou=permission,dc=yunohost,dc=org))",
             "usernameField": "cn",
             "useridField": "uid"
             }
