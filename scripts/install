@@ -39,7 +39,7 @@ final_path=/var/www/$app
 test ! -e "$final_path" || ynh_die "This path already contains a folder"
 
 # Register (book) web path
-ynh_webpath_register --app="$app" --domain="$domain" --path_url="$path_url"
+ynh_webpath_register --app=$app --domain=$domain --path_url=$path_url
 
 #=================================================
 # FIND AND OPEN A PORT
@@ -150,7 +150,7 @@ ynh_script_progression --message="Configuring system user..." --weight=3
 # Create a system user
 ynh_system_user_create --username=$app --home_dir=$final_path
 
-chown -R "$app":"$app" "$final_path"
+chown -R $app:$app $final_path
 
 #=================================================
 # SETUP LOGROTATE

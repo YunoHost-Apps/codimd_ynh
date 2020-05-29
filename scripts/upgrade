@@ -178,7 +178,7 @@ yunohost service add $app --description "Collaborative Markdown notes" --log="/v
 #=================================================
 
 # Set permissions on app files
-chown -R "$app":"$app" "$final_path"
+chown -R $app:$app $final_path
 
 #=================================================
 # START SYSTEMD SERVICE
