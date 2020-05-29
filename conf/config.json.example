@@ -6,7 +6,7 @@
         "loglevel": "info",
         "useCDN": false,
         "allowGravatar": false,
-        "allowFreeURL" true,
+        "allowFreeURL": true,
         "hsts": {
             "enable": true,
             "maxAgeSeconds": 31536000,
