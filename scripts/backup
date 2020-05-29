@@ -35,7 +35,7 @@ db_name=$(ynh_app_setting_get --app=$app --key=db_name)
 # BACKUP THE APP MAIN DIR
 #=================================================
 
-ynh_backup --src_path="$final_path"
+ynh_backup --src_path=$final_path
 
 #=================================================
 # BACKUP THE NGINX CONFIGURATION
@@ -48,7 +48,7 @@ ynh_backup --src_path="/etc/nginx/conf.d/$domain.d/$app.conf"
 #=================================================
 ynh_print_info --message="Backing up the database..."
 
-ynh_psql_dump_db --database="$db_name" > db.sql
+ynh_psql_dump_db --database=$db_name > db.sql
 
 #=================================================
 # SPECIFIC BACKUP
