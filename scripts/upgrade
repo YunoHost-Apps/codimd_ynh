@@ -185,7 +185,7 @@ chown -R $app:$app $final_path
 #=================================================
 # SETUP SSOWAT
 #=================================================
-ynh_script_progression --message="Upgrading SSOwat configuration..." --time --weight=1
+ynh_script_progression --message="Upgrading SSOwat configuration..." --weight=1
 
 # Make app public if necessary
 if [ $is_public -eq 1 ]
