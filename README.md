@@ -10,7 +10,7 @@ If you don't have YunoHost, please see [here](https://yunohost.org/#/install) to
 
 ## Overview
 
-Collaborative editor to work on notes written in Markdown.
+CodiMD is a real-time collaborative word processing web service. It uses Markdown language.
 
 **Shipped version:** 1.6.0
 
@@ -24,7 +24,7 @@ Collaborative editor to work on notes written in Markdown.
 
 ## Configuration
 
-If you need to configure CodiMD, you can tweak `/var/www/codimd/config.json` file using this [documentation](https://github.com/codimd/server/blob/master/docs/configuration-config-file.md)
+You can configure CodiMD by editing this file `/var/www/codimd/config.json` using this the [documentation](https://github.com/codimd/server/blob/master/docs/configuration-config-file.md)
 
 ## Documentation
 
@@ -35,12 +35,12 @@ If you need to configure CodiMD, you can tweak `/var/www/codimd/config.json` fil
 
 #### Multi-users support
 
-* Is LDAP supported? Yes
-* Can the app be used by multiple users? Yes
+* Is LDAP supported? **Yes**
+* Can the app be used by multiple users? **Yes**
 
 #### Supported architectures
 
-* x86-64b - [![Build Status](https://ci-apps.yunohost.org/ci/logs/codimd%20%28Apps%29.svg)](https://ci-apps.yunohost.org/ci/apps/codimd/)
+* x86-64 - [![Build Status](https://ci-apps.yunohost.org/ci/logs/codimd%20%28Apps%29.svg)](https://ci-apps.yunohost.org/ci/apps/codimd/)
 * ARMv8-A - [![Build Status](https://ci-apps-arm.yunohost.org/ci/logs/codimd%20%28Apps%29.svg)](https://ci-apps-arm.yunohost.org/ci/apps/codimd/)
 
 ## Limitations
