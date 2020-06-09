@@ -39,7 +39,7 @@
             "usernameField": "cn",
             "useridField": "uid",
             "providerName": "YunoHost"
-            }
+        }
     }
 }
 
