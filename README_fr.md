@@ -42,6 +42,7 @@ Vous pouvez configurer CodiMD en modifiant le fichier `/var/www/codimd/config.js
 
 * x86-64 - [![Build Status](https://ci-apps.yunohost.org/ci/logs/codimd%20%28Apps%29.svg)](https://ci-apps.yunohost.org/ci/apps/codimd/)
 * ARMv8-A - [![Build Status](https://ci-apps-arm.yunohost.org/ci/logs/codimd%20%28Apps%29.svg)](https://ci-apps-arm.yunohost.org/ci/apps/codimd/)
+* Buster x86-64 - [![](https://ci-buster.nohost.me/ci/logs/codimd%20%28Apps%29.svg)](https://ci-buster.nohost.me/ci/apps/codimd/)
 
 ## Limitations
 
