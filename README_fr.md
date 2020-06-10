@@ -5,14 +5,14 @@
 
 *[Read this readme in english.](./README.md)* 
 
-> *Ce package vous permet d’installer CodiMD rapidement et simplement sur un serveur Yunohost.  
+> *Ce package vous permet d’installer CodiMD rapidement et simplement sur un serveur YunoHost.  
 Si vous n’avez pas YunoHost, consultez [le guide](https://yunohost.org/#/install) pour apprendre comment l’installer.*
 
 ## Vue d’ensemble
 
 CodiMD est un service web de traitement de texte collaboratif en temps réel. Il utilise le langage Markdown.
 
-**Version incluse:** 1.6.0
+**Version incluse :** 1.6.0
 
 ## Captures d’écran
 
@@ -42,7 +42,7 @@ Vous pouvez configurer CodiMD en modifiant le fichier `/var/www/codimd/config.js
 
 * x86-64 - [![Build Status](https://ci-apps.yunohost.org/ci/logs/codimd%20%28Apps%29.svg)](https://ci-apps.yunohost.org/ci/apps/codimd/)
 * ARMv8-A - [![Build Status](https://ci-apps-arm.yunohost.org/ci/logs/codimd%20%28Apps%29.svg)](https://ci-apps-arm.yunohost.org/ci/apps/codimd/)
-* Buster x86-64 - [![](https://ci-buster.nohost.me/ci/logs/codimd%20%28Apps%29.svg)](https://ci-buster.nohost.me/ci/apps/codimd/)
+* Buster x86-64 - [![Build Status](https://ci-buster.nohost.me/ci/logs/codimd%20%28Apps%29.svg)](https://ci-buster.nohost.me/ci/apps/codimd/)
 
 ## Limitations
 
