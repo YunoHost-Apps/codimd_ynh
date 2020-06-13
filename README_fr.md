@@ -1,20 +1,19 @@
 # CodiMD pour YunoHost
 
-[![Niveau d’intégration](https://dash.yunohost.org/integration/codimd.svg)](https://dash.yunohost.org/appci/app/codimd) ![](https://ci-apps.yunohost.org/ci/badges/codimd.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/codimd.maintain.svg)  
+[![Niveau d'intégration](https://dash.yunohost.org/integration/codimd.svg)](https://dash.yunohost.org/appci/app/codimd) ![](https://ci-apps.yunohost.org/ci/badges/codimd.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/codimd.maintain.svg)  
 [![Installer CodiMD avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.png)](https://install-app.yunohost.org/?app=codimd)
 
 *[Read this readme in english.](./README.md)* 
 
-> *Ce package vous permet d’installer CodiMD rapidement et simplement sur un serveur YunoHost.  
-Si vous n’avez pas YunoHost, consultez [le guide](https://yunohost.org/#/install) pour apprendre comment l’installer.*
+> *Ce package vous permet d'installer CodiMD rapidement et simplement sur un serveur Yunohost.  
+Si vous n'avez pas YunoHost, consultez [le guide](https://yunohost.org/#/install) pour apprendre comment l'installer.*
 
-## Vue d’ensemble
-
+## Vue d'ensemble
 CodiMD est un service web de traitement de texte collaboratif en temps réel. Il utilise le langage Markdown.
 
 **Version incluse :** 1.6.0
 
-## Captures d’écran
+## Captures d'écran
 
 ![](https://demo.codimd.org/screenshot.png)
 
@@ -33,25 +32,20 @@ Vous pouvez configurer CodiMD en modifiant le fichier `/var/www/codimd/config.js
 
 ## Caractéristiques spécifiques YunoHost
 
-#### Support multi-utilisateurs
+#### Support multi-utilisateur
 
-* L’authentification LDAP est-elle prise en charge ? **Oui**
-* L’application peut-elle être utilisée par plusieurs utilisateurs ? **Oui**
+* L'authentification LDAP est-elle prise en charge ? **Oui**
+* L'application peut-elle être utilisée par plusieurs utilisateurs ? **Oui**
 
 #### Architectures supportées
 
-* x86-64 - [![Build Status](https://ci-apps.yunohost.org/ci/logs/codimd%20%28Apps%29.svg)](https://ci-apps.yunohost.org/ci/apps/codimd/)
+* x86-64b - [![Build Status](https://ci-apps.yunohost.org/ci/logs/codimd%20%28Apps%29.svg)](https://ci-apps.yunohost.org/ci/apps/codimd/)
 * ARMv8-A - [![Build Status](https://ci-apps-arm.yunohost.org/ci/logs/codimd%20%28Apps%29.svg)](https://ci-apps-arm.yunohost.org/ci/apps/codimd/)
-* Buster x86-64 - [![Build Status](https://ci-buster.nohost.me/ci/logs/codimd%20%28Apps%29.svg)](https://ci-buster.nohost.me/ci/apps/codimd/)
-
-## Limitations
-
-## Informations additionnelles
 
 ## Liens
 
  * Signaler un bug : https://github.com/YunoHost-Apps/codimd_ynh/issues
- * Dépôt de l’application principale : https://github.com/codimd/server/
+ * Dépôt de l'application principale : https://github.com/codimd/server/
  * Site web YunoHost : https://yunohost.org/
 
 ---

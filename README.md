@@ -5,11 +5,10 @@
 
 *[Lire ce readme en français.](./README_fr.md)*
 
-> *This package allow you to install CodiMD quickly and simply on a YunoHost server.  
-If you don't have YunoHost, please see [here](https://yunohost.org/#/install) to know how to install and enjoy it.*
+> *This package allows you to install CodiMD quickly and simply on a YunoHost server.  
+If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/install) to learn how to install it.*
 
 ## Overview
-
 CodiMD is a real-time collaborative word processing web service. It uses Markdown language.
 
 **Shipped version:** 1.6.0
@@ -33,7 +32,7 @@ You can configure CodiMD by editing this file `/var/www/codimd/config.json` usin
 
 ## YunoHost specific features
 
-#### Multi-users support
+#### Multi-user support
 
 * Is LDAP supported? **Yes**
 * Can the app be used by multiple users? **Yes**
@@ -42,11 +41,6 @@ You can configure CodiMD by editing this file `/var/www/codimd/config.json` usin
 
 * x86-64 - [![Build Status](https://ci-apps.yunohost.org/ci/logs/codimd%20%28Apps%29.svg)](https://ci-apps.yunohost.org/ci/apps/codimd/)
 * ARMv8-A - [![Build Status](https://ci-apps-arm.yunohost.org/ci/logs/codimd%20%28Apps%29.svg)](https://ci-apps-arm.yunohost.org/ci/apps/codimd/)
-* Buster x86-64 - [![Build Status](https://ci-buster.nohost.me/ci/logs/codimd%20%28Apps%29.svg)](https://ci-buster.nohost.me/ci/apps/codimd/)
-
-## Limitations
-
-## Additional information
 
 ## Links
 
@@ -56,10 +50,10 @@ You can configure CodiMD by editing this file `/var/www/codimd/config.json` usin
 
 ---
 
-Developers info
+Developer info
 ----------------
 
-Please do your pull request to the [testing branch](https://github.com/YunoHost-Apps/codimd_ynh/tree/testing).
+Please send your pull request to the [testing branch](https://github.com/YunoHost-Apps/codimd_ynh/tree/testing).
 
 To try the testing branch, please proceed like that.
 ```
