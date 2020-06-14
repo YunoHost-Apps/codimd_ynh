@@ -27,7 +27,7 @@ Vous pouvez configurer CodiMD en modifiant le fichier `/var/www/codimd/config.js
 
 ## Documentation
 
- * Documentation officielle : https://hackmd.io/c/codimd-documentation/
+ * Documentation officielle : https://github.com/codimd/server/tree/1.6.0/docs/
  * Documentation YunoHost : https://yunohost.org/#/app_codimd_fr
 
 ## Caractéristiques spécifiques YunoHost
