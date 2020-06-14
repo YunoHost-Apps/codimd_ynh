@@ -1,12 +1,12 @@
-
 {
     "production": {
         "protocolUseSSL": true,
         "domain": "__DOMAIN__",
-        "port": __PORT__,
+        "port": "__PORT__",
         "loglevel": "info",
         "useCDN": false,
         "allowGravatar": false,
+        "allowFreeURL": true,
         "hsts": {
             "enable": true,
             "maxAgeSeconds": 31536000,
@@ -20,7 +20,7 @@
             "upgradeInsecureRequests": "auto",
             "addDefaults": true,
             "addDisqus": true,
-            "addGoogleAnalytics": true
+            "addGoogleAnalytics": false
         },
         "db": {
             "username": "__DB_USER__",
@@ -29,6 +29,19 @@
             "host": "localhost",
             "port": "5432",
             "dialect": "postgres"
+        },
+        "ldap": {
+            "url": "ldap://127.0.0.1:389",
+            "bindDn": null,
+            "bindCredentials": null,
+            "searchBase": "ou=users,dc=yunohost,dc=org",
+            "searchFilter": "(&(|(objectclass=posixAccount))(uid={{username}})(permission=cn=__APP__.main,ou=permission,dc=yunohost,dc=org))",
+            "usernameField": "cn",
+            "useridField": "uid",
+            "providerName": "YunoHost"
         }
     }
 }
+
+
+
