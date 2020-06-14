@@ -27,7 +27,7 @@ You can configure CodiMD by editing this file `/var/www/codimd/config.json` usin
 
 ## Documentation
 
- * Official documentation: https://hackmd.io/c/codimd-documentation/
+ * Official documentation: https://github.com/codimd/server/tree/master/docs/
  * YunoHost documentation: https://yunohost.org/#/app_codimd
 
 ## YunoHost specific features
