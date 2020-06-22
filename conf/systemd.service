@@ -1,7 +1,7 @@
 [Unit]
-Description=__APP__: collaborative Markdown notes
-After=network.target
-After=postgresql.service
+Description=CodiMD: collaborative Markdown notes
+Documentation=https://github.com/codimd/server
+After=network.target postgresql.service
 
 [Service]
 Type=simple
@@ -10,7 +10,7 @@ Group=__APP__
 WorkingDirectory=__FINALPATH__
 Environment="PATH=__ENV_PATH__"
 Environment="NODE_ENV=production"
-ExecStart=__YNH_NPM__ start
+ExecStart=__YNH_NPM__ start --production
 Restart=always
 PrivateTmp=true
 PrivateDevices=true
