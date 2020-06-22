@@ -23,7 +23,7 @@ CodiMD est un service web de traitement de texte collaboratif en temps réel. Il
 
 ## Configuration
 
-Vous pouvez configurer CodiMD en modifiant le fichier `/var/www/codimd/config.json` et en vous aidant de la [documentation](https://github.com/codimd/server/blob/master/docs/configuration-config-file.md)
+Vous pouvez configurer CodiMD en modifiant le fichier `/var/www/codimd/config.json` et en vous aidant de la [documentation](https://github.com/codimd/server/blob/master/docs/configuration.md)
 
 ## Documentation
 
