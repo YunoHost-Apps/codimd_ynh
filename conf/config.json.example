@@ -3,6 +3,7 @@
         "protocolUseSSL": true,
         "domain": "__DOMAIN__",
         "port": "__PORT__",
+        "urlPath": "__PATH__",
         "sessionSecret": "__SESSION__",
         "loglevel": "info",
         "useCDN": false,
