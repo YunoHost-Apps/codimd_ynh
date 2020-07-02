@@ -24,7 +24,7 @@ ynh_abort_if_errors
 #=================================================
 
 domain=$YNH_APP_ARG_DOMAIN
-path_url="/"
+path_url=$YNH_APP_ARG_PATH
 is_public=$YNH_APP_ARG_IS_PUBLIC
 
 app=$YNH_APP_INSTANCE_NAME
@@ -146,6 +146,7 @@ ynh_script_progression --message="Modifying a config file..."
 # Main config File
 ynh_replace_string --match_string="__PORT__"     --replace_string="$port"    --target_file="../conf/config.json.example"
 ynh_replace_string --match_string="__DOMAIN__"   --replace_string="$domain"  --target_file="../conf/config.json.example"
+ynh_replace_string --match_string="__PATH__"     --replace_string="${path_url:1}" --target_file="../conf/config.json.example"
 ynh_replace_string --match_string="__DB_USER__"  --replace_string="$db_user" --target_file="../conf/config.json.example"
 ynh_replace_string --match_string="__DB_NAME__"  --replace_string="$db_name" --target_file="../conf/config.json.example"
 ynh_replace_string --match_string="__DB_PASS__"  --replace_string="$db_pwd"  --target_file="../conf/config.json.example"
