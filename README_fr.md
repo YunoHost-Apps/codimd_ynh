@@ -5,7 +5,7 @@
 
 *[Read this readme in english.](./README.md)* 
 
-> *Ce package vous permet d'installer CodiMD rapidement et simplement sur un serveur Yunohost.  
+> *Ce package vous permet d'installer CodiMD rapidement et simplement sur un serveur YunoHost.  
 Si vous n'avez pas YunoHost, consultez [le guide](https://yunohost.org/#/install) pour apprendre comment l'installer.*
 
 ## Vue d'ensemble
@@ -23,7 +23,7 @@ CodiMD est un service web de traitement de texte collaboratif en temps réel. Il
 
 ## Configuration
 
-Vous pouvez configurer CodiMD en modifiant le fichier `/var/www/codimd/config.json` et en vous aidant de la [documentation](https://github.com/codimd/server/blob/master/docs/configuration-config-file.md)
+Vous pouvez configurer CodiMD en modifiant le fichier `/var/www/codimd/config.json` et en vous aidant de la [documentation](https://github.com/codimd/server/blob/master/docs/configuration.md)
 
 ## Documentation
 
