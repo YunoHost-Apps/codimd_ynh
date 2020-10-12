@@ -50,8 +50,7 @@ You can configure CodiMD by editing this file `/var/www/codimd/config.json` usin
 
 ---
 
-Developer info
-----------------
+## Developer info
 
 Please send your pull request to the [testing branch](https://github.com/YunoHost-Apps/codimd_ynh/tree/testing).
 

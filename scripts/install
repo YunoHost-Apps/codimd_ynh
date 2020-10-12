@@ -100,9 +100,9 @@ ynh_setup_source --dest_dir=$final_path
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
-ynh_script_progression --message="Configuring Nginx web server..." --weight=2
+ynh_script_progression --message="Configuring NGINX web server..." --weight=2
 
-# Create a dedicated nginx config
+# Create a dedicated NGINX config
 ynh_add_nginx_config
 
 #=================================================
@@ -118,7 +118,7 @@ ynh_system_user_create --username=$app --home_dir=$final_path
 #==============================================
 # INSTALL CODIMD
 #==============================================
-ynh_script_progression --message="Building $app... (this will take some time and resources!)" --weight=240
+ynh_script_progression --message="Building CodiMD... (this will take some time and resources!)" --weight=240
 
 pushd "$final_path" || ynh_die
 
@@ -206,7 +206,7 @@ fi
 #=================================================
 # RELOAD NGINX
 #=================================================
-ynh_script_progression --message="Reloading Nginx web server..." --weight=2
+ynh_script_progression --message="Reloading NGINX web server..." --weight=2
 
 ynh_systemd_action --service_name=nginx --action=reload
 
@@ -214,4 +214,4 @@ ynh_systemd_action --service_name=nginx --action=reload
 # END OF SCRIPT
 #=================================================
 
-ynh_script_progression --message="Installation of $app completed" --last
+ynh_script_progression --message="Installation of CodiMD completed" --last
