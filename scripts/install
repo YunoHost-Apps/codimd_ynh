@@ -143,7 +143,7 @@ ynh_add_systemd_config
 #=================================================
 ynh_script_progression --message="Modifying a config file..."
 
-cp ../conf/config.json.default "$final_path/config.json"
+cp ../conf/config.json.example "$final_path/config.json"
 
 # Main config File
 ynh_replace_string --match_string="__PORT__"    --replace_string="$port"     --target_file="$final_path/config.json"
@@ -156,7 +156,7 @@ ynh_replace_string --match_string="__APP__"     --replace_string="$app"      --t
 
 ynh_store_file_checksum --file="$final_path/config.json"
 
-cp ../conf/.sequelizerc.default "$final_path/.sequelizerc"
+cp ../conf/.sequelizerc.example "$final_path/.sequelizerc"
 
 # DB Config File
 ynh_replace_string --match_string="__DB_USER__" --replace_string="$db_user" --target_file="$final_path/.sequelizerc"

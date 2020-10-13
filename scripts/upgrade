@@ -139,7 +139,7 @@ ynh_script_progression --message="Modifying a config file..." --weight=2
 
 ynh_backup_if_checksum_is_different --file="$final_path/config.json"
 
-cp ../conf/config.json.default "$final_path/config.json"
+cp ../conf/config.json.example "$final_path/config.json"
 
 # Main config File
 ynh_replace_string --match_string="__PORT__"    --replace_string="$port"     --target_file="$final_path/config.json"
