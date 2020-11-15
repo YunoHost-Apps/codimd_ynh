@@ -23,7 +23,7 @@ CodiMD is a real-time collaborative word processing web service. It uses Markdow
 
 ## Configuration
 
-You can configure CodiMD by editing this file `/var/www/codimd/config.json` using this the [documentation](https://github.com/codimd/server/blob/master/docs/configuration.md)
+You can configure CodiMD by editing this file `/var/www/codimd/config.json` using the [documentation](https://github.com/codimd/server/blob/master/docs/configuration.md)
 
 ## Documentation
 
