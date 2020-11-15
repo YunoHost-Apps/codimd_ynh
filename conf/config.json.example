@@ -13,6 +13,7 @@
         "email": true,
         "allowEmailRegister": true,
         "imageUploadType": "filesystem",
+        "tooBusyLag": 1000,
         "hsts": {
             "enable": true,
             "maxAgeSeconds": 31536000,
