@@ -27,7 +27,7 @@ Vous pouvez configurer CodiMD en modifiant le fichier `/var/www/codimd/config.js
 
 ## Documentation
 
- * Documentation officielle : https://github.com/codimd/server/tree/master/docs/
+ * Documentation officielle : https://github.com/hedgedoc/hedgedoc/tree/master/docs
  * Documentation YunoHost : https://yunohost.org/#/app_codimd_fr
 
 ## Caractéristiques spécifiques YunoHost
@@ -45,7 +45,7 @@ Vous pouvez configurer CodiMD en modifiant le fichier `/var/www/codimd/config.js
 ## Liens
 
  * Signaler un bug : https://github.com/YunoHost-Apps/codimd_ynh/issues
- * Dépôt de l'application principale : https://github.com/codimd/server/
+ * Dépôt de l'application principale : https://github.com/hedgedoc/hedgedoc
  * Site web YunoHost : https://yunohost.org/
 
 ---

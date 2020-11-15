@@ -7,7 +7,7 @@
         "fr": "Éditeur collaboratif pour travailler sur des notes en Markdown"
     },
     "version": "1.6.0~ynh5",
-    "url": "https://github.com/codimd/server",
+    "url": "https://github.com/hedgedoc/hedgedoc",
     "license": "AGPL-3.0-only",
     "maintainer": {
         "name": "liberodark"
