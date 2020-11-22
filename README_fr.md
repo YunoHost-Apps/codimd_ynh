@@ -1,17 +1,15 @@
-# HedgeDoc pour YunoHost (anciennement CodiMD)
+# CodiMD pour YunoHost
 
 [![Niveau d'intégration](https://dash.yunohost.org/integration/codimd.svg)](https://dash.yunohost.org/appci/app/codimd) ![](https://ci-apps.yunohost.org/ci/badges/codimd.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/codimd.maintain.svg)  
-[![Installer HedgeDoc avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.png)](https://install-app.yunohost.org/?app=codimd)
+[![Installer CodiMD avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.png)](https://install-app.yunohost.org/?app=codimd)
 
 *[Read this readme in english.](./README.md)* 
 
-> *Ce package vous permet d'installer HedgeDoc rapidement et simplement sur un serveur YunoHost.  
+> *Ce package vous permet d'installer CodiMD rapidement et simplement sur un serveur YunoHost.  
 Si vous n'avez pas YunoHost, consultez [le guide](https://yunohost.org/#/install) pour apprendre comment l'installer.*
 
 ## Vue d'ensemble
-HedgeDoc est un service web de traitement de texte collaboratif en temps réel. Il utilise le langage Markdown.
-
-*Note: Ce packet installe HedgeDoc, anciennement nommé CodiMD, et non ce qui s'appelle maintenant CodiMD (la partie open source d'HackMD). Cf. https://hedgedoc.org/history/*
+CodiMD est un service web de traitement de texte collaboratif en temps réel. Il utilise le langage Markdown.
 
 **Version incluse :** 1.6.0
 
@@ -25,7 +23,7 @@ HedgeDoc est un service web de traitement de texte collaboratif en temps réel. 
 
 ## Configuration
 
-Vous pouvez configurer HedgeDoc en modifiant le fichier `/var/www/codimd/config.json` et en vous aidant de la [documentation](https://github.com/codimd/server/blob/master/docs/configuration.md)
+Vous pouvez configurer CodiMD en modifiant le fichier `/var/www/codimd/config.json` et en vous aidant de la [documentation](https://github.com/codimd/server/blob/master/docs/configuration.md)
 
 ## Documentation
 
@@ -57,6 +55,12 @@ Vous pouvez configurer HedgeDoc en modifiant le fichier `/var/www/codimd/config.
 Merci de faire vos pull request sur la [branche testing](https://github.com/YunoHost-Apps/codimd_ynh/tree/testing).
 
 Pour essayer la branche testing, procédez comme suit.
+```
+sudo yunohost app install https://github.com/YunoHost-Apps/codimd_ynh/tree/testing --debug
+ou
+sudo yunohost app upgrade codimd -u https://github.com/YunoHost-Apps/codimd_ynh/tree/testing --debug
+```
+it.
 ```
 sudo yunohost app install https://github.com/YunoHost-Apps/codimd_ynh/tree/testing --debug
 ou

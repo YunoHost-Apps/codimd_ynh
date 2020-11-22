@@ -1,17 +1,15 @@
-# HedgeDoc for YunoHost (formely CodiMD)
+# CodiMD for YunoHost
 
 [![Integration level](https://dash.yunohost.org/integration/codimd.svg)](https://dash.yunohost.org/appci/app/codimd) ![](https://ci-apps.yunohost.org/ci/badges/codimd.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/codimd.maintain.svg)  
-[![Install HedgeDoc with YunoHost](https://install-app.yunohost.org/install-with-yunohost.png)](https://install-app.yunohost.org/?app=codimd)
+[![Install CodiMD with YunoHost](https://install-app.yunohost.org/install-with-yunohost.png)](https://install-app.yunohost.org/?app=codimd)
 
 *[Lire ce readme en français.](./README_fr.md)*
 
-> *This package allows you to install HedgeDoc quickly and simply on a YunoHost server.  
+> *This package allows you to install CodiMD quickly and simply on a YunoHost server.  
 If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/install) to learn how to install it.*
 
 ## Overview
-HedgeDoc is a real-time collaborative word processing web service. It uses Markdown language.
-
-*Note: This package install HedgeDoc, which was formely called CodiMD, and not what's now called CodiMD (the open source part of HackMD). See https://hedgedoc.org/history/*
+CodiMD is a real-time collaborative word processing web service. It uses Markdown language.
 
 **Shipped version:** 1.6.0
 
@@ -25,7 +23,7 @@ HedgeDoc is a real-time collaborative word processing web service. It uses Markd
 
 ## Configuration
 
-You can configure HedgeDoc by editing this file `/var/www/codimd/config.json` using the [documentation](https://github.com/codimd/server/blob/master/docs/configuration.md)
+You can configure CodiMD by editing this file `/var/www/codimd/config.json` using the [documentation](https://github.com/codimd/server/blob/master/docs/configuration.md)
 
 ## Documentation
 
