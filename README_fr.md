@@ -1,15 +1,16 @@
-# CodiMD pour YunoHost
+# HedgeDoc pour YunoHost (anciennement CodiMD)
 
 [![Niveau d'intégration](https://dash.yunohost.org/integration/codimd.svg)](https://dash.yunohost.org/appci/app/codimd) ![](https://ci-apps.yunohost.org/ci/badges/codimd.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/codimd.maintain.svg)  
-[![Installer CodiMD avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.png)](https://install-app.yunohost.org/?app=codimd)
+[![Installer HedgeDoc avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.png)](https://install-app.yunohost.org/?app=codimd)
 
 *[Read this readme in english.](./README.md)* 
 
-> *Ce package vous permet d'installer CodiMD rapidement et simplement sur un serveur YunoHost.  
+> *Ce package vous permet d'installer HedgeDoc rapidement et simplement sur un serveur YunoHost.  
 Si vous n'avez pas YunoHost, consultez [le guide](https://yunohost.org/#/install) pour apprendre comment l'installer.*
 
 ## Vue d'ensemble
-CodiMD est un service web de traitement de texte collaboratif en temps réel. Il utilise le langage Markdown.
+HedgeDoc est un service web de traitement de texte collaboratif en temps réel. Il utilise le langage Markdown.
+Note: Ce packet installe HedgeDoc, anciennement nommé CodiMD, et non ce qui s'appelle maintenant CodiMD (la partie open source d'HackMD). Cf. https://hedgedoc.org/history/
 
 **Version incluse :** 1.6.0
 
@@ -23,7 +24,7 @@ CodiMD est un service web de traitement de texte collaboratif en temps réel. Il
 
 ## Configuration
 
-Vous pouvez configurer CodiMD en modifiant le fichier `/var/www/codimd/config.json` et en vous aidant de la [documentation](https://github.com/codimd/server/blob/master/docs/configuration.md)
+Vous pouvez configurer HedgeDoc en modifiant le fichier `/var/www/codimd/config.json` et en vous aidant de la [documentation](https://github.com/codimd/server/blob/master/docs/configuration.md)
 
 ## Documentation
 
