@@ -10,7 +10,8 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 ## Overview
 HedgeDoc is a real-time collaborative word processing web service. It uses Markdown language.
-Note: This package install HedgeDoc, which was formely called CodiMD, and not what's now called CodiMD (the open source part of HackMD). See https://hedgedoc.org/history/
+
+*Note: This package install HedgeDoc, which was formely called CodiMD, and not what's now called CodiMD (the open source part of HackMD). See https://hedgedoc.org/history/*
 
 **Shipped version:** 1.6.0
 
