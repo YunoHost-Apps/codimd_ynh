@@ -10,7 +10,8 @@ Si vous n'avez pas YunoHost, consultez [le guide](https://yunohost.org/#/install
 
 ## Vue d'ensemble
 HedgeDoc est un service web de traitement de texte collaboratif en temps réel. Il utilise le langage Markdown.
-Note: Ce packet installe HedgeDoc, anciennement nommé CodiMD, et non ce qui s'appelle maintenant CodiMD (la partie open source d'HackMD). Cf. https://hedgedoc.org/history/
+
+*Note: Ce packet installe HedgeDoc, anciennement nommé CodiMD, et non ce qui s'appelle maintenant CodiMD (la partie open source d'HackMD). Cf. https://hedgedoc.org/history/*
 
 **Version incluse :** 1.6.0
 
