@@ -3,6 +3,8 @@
 [![Integration level](https://dash.yunohost.org/integration/codimd.svg)](https://dash.yunohost.org/appci/app/codimd) ![](https://ci-apps.yunohost.org/ci/badges/codimd.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/codimd.maintain.svg)  
 [![Install CodiMD with YunoHost](https://install-app.yunohost.org/install-with-yunohost.png)](https://install-app.yunohost.org/?app=codimd)
 
+> :warning: The CodiMD project has been renamed HedgeDoc. The YunoHost package for HedgeDoc is now hosted at this address https://github.com/YunoHost-Apps/hedgedoc_ynh. codimd_ynh will stay at version 1.16 and will no longer be updated.
+
 *[Lire ce readme en français.](./README_fr.md)*
 
 > *This package allows you to install CodiMD quickly and simply on a YunoHost server.  
