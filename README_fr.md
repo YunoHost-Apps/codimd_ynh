@@ -3,7 +3,7 @@
 [![Niveau d'intégration](https://dash.yunohost.org/integration/codimd.svg)](https://dash.yunohost.org/appci/app/codimd) ![](https://ci-apps.yunohost.org/ci/badges/codimd.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/codimd.maintain.svg)  
 [![Installer CodiMD avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.png)](https://install-app.yunohost.org/?app=codimd)
 
-> :warning: Le projet CodiMD a été renommé HedgeDoc. Le package YunoHost pour HedgeDoc est désormais hébergé à cette adresse https://github.com/YunoHost-Apps/hedgedoc_ynh. codimd_ynh restera à la version 1.16 et ne sera plus mis à jour.
+> :warning: Le projet CodiMD a été renommé HedgeDoc. Le package YunoHost pour HedgeDoc est désormais hébergé à cette adresse https://github.com/YunoHost-Apps/hedgedoc_ynh. codimd_ynh restera à la version 1.6.0 et ne sera plus mis à jour.
 
 *[Read this readme in english.](./README.md)* 
 
