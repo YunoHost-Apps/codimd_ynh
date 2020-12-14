@@ -118,7 +118,7 @@ ynh_system_user_create --username=$app --home_dir=$final_path
 #==============================================
 # INSTALL CODIMD
 #==============================================
-ynh_script_progression --message="Building CodiMD... (this will take some time and resources!)" --weight=240
+ynh_script_progression --message="Building CodiMD... (this will take some time and resources!)" --weight=24
 
 pushd "$final_path" || ynh_die
 
@@ -200,7 +200,7 @@ if [ $is_public -eq 1 ]
 then
 	# Everyone can access the app.
 	# The "main" permission is automatically created before the install script.
-	 	ynh_permission_update --permission "main" --add "visitors"
+	ynh_permission_update --permission "main" --add "visitors"
 fi
 
 #=================================================
