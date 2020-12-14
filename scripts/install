@@ -118,7 +118,7 @@ ynh_system_user_create --username=$app --home_dir=$final_path
 #==============================================
 # INSTALL CODIMD
 #==============================================
-ynh_script_progression --message="Building CodiMD... (this will take some time and resources!)" --weight=240
+ynh_script_progression --message="Building CodiMD... (this will take some time and resources!)" --weight=24
 
 pushd "$final_path" || ynh_die
 	ynh_use_nodejs
