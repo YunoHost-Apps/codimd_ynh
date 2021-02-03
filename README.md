@@ -13,6 +13,10 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 ## Overview
 CodiMD is a real-time collaborative word processing web service. It uses Markdown language.
 
+**Important note :**  the former CodiMD projet (fork of HackMD) has been renamed to HedgeDoc, while the previous HackMD software was renamed CodiMD.
+For the moment, for compatibility reason this package is still called CodiMD, but the software installed is HedgeDoc.
+See https://hedgedoc.org/history/ for more information about it.
+
 **Shipped version:** 1.6.0
 
 ## Screenshots
