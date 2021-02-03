@@ -15,6 +15,10 @@ CodiMD est un service web de traitement de texte collaboratif en temps réel. Il
 
 **Version incluse :** 1.6.0
 
+**Note importante :**  l'ancien logiciel CodiMD (fork de HackMD) a été renommé HedgeDoc, tandis que le logiciel HackMD a pris le nom de CodiMD.
+Pour le moment, pour des raisons de compatibilité, ce paquet est toujours nommé CodiMD, mais **le logiciel installé est HedgeDoc**.
+Consultez https://hedgedoc.org/history/ pour plus d'information.
+
 ## Captures d'écran
 
 ![](https://demo.codimd.org/screenshot.png)
