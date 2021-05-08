@@ -133,10 +133,12 @@ if [ "$upgrade_type" == "UPGRADE_APP" ]
 then
 	ynh_script_progression --message="Building CodiMD... (this will take some time and resources!)" --weight=16
 
+	chown -R $app: $final_path
+
 	pushd "$final_path" || ynh_die
 		ynh_use_nodejs
-		ynh_exec_warn_less $app bin/setup
-		ynh_exec_warn_less yarn run build
+		ynh_exec_warn_less ynh_exec_as $app bin/setup
+		ynh_exec_warn_less ynh_exec_as $app yarn run build
 	popd || ynh_die
 fi
 
@@ -167,7 +169,7 @@ ynh_add_systemd_config
 ynh_script_progression --message="Securing files and directories..." --weight=1
 
 # Set permissions on app files
-chown -R $app:$app $final_path
+chown -R $app: $final_path
 
 #=================================================
 # INTEGRATE SERVICE IN YUNOHOST
