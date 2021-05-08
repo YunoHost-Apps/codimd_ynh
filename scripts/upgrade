@@ -135,8 +135,8 @@ then
 
 	pushd "$final_path" || ynh_die
 		ynh_use_nodejs
-		ynh_exec_warn_less bin/setup
-		ynh_exec_warn_less yarn run build
+		ynh_exec_warn_less ynh_exec_as --user=$app bin/setup
+		ynh_exec_warn_less ynh_exec_as --user=$app yarn run build
 	popd || ynh_die
 fi
 
