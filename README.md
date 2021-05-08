@@ -15,7 +15,7 @@ CodiMD is a real-time collaborative word processing web service. It uses Markdow
 
 ## Screenshots
 
-![](https://demo.codimd.org/screenshot.png)
+![](https://raw.githubusercontent.com/hackmdio/codimd/develop/public/screenshot.png)
 
 ## Demo
 
@@ -23,11 +23,11 @@ CodiMD is a real-time collaborative word processing web service. It uses Markdow
 
 ## Configuration
 
-You can configure CodiMD by editing this file `/var/www/codimd/config.json` using the [documentation](https://github.com/codimd/server/blob/master/docs/configuration.md)
+You can configure CodiMD by editing this file `/var/www/codimd/config.json` using the [documentation](https://hackmd.io/c/codimd-documentation/%2Fs%2Fcodimd-configuration)
 
 ## Documentation
 
- * Official documentation: https://hackmd.io/c/codimd-documentation/%2Fs%2Fcodimd-documentation
+ * Official documentation: https://hackmd.io/c/codimd-documentation
  * YunoHost documentation: https://yunohost.org/en/app_codimd
 
 ## YunoHost specific features

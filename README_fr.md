@@ -17,7 +17,7 @@ CodiMD est un service web de traitement de texte collaboratif en temps réel. Il
 
 ## Captures d'écran
 
-![](https://demo.codimd.org/screenshot.png)
+![](https://raw.githubusercontent.com/hackmdio/codimd/develop/public/screenshot.png)
 
 ## Démo
 
@@ -25,12 +25,12 @@ CodiMD est un service web de traitement de texte collaboratif en temps réel. Il
 
 ## Configuration
 
-Vous pouvez configurer CodiMD en modifiant le fichier `/var/www/codimd/config.json` et en vous aidant de la [documentation](https://github.com/codimd/server/blob/master/docs/configuration.md)
+Vous pouvez configurer CodiMD en modifiant le fichier `/var/www/codimd/config.json` et en vous aidant de la [documentation](https://hackmd.io/c/codimd-documentation/%2Fs%2Fcodimd-configuration)
 
 ## Documentation
 
- * Documentation officielle : https://github.com/hedgedoc/hedgedoc/tree/master/docs
- * Documentation YunoHost : https://yunohost.org/#/app_codimd_fr
+ * Documentation officielle : https://hackmd.io/c/codimd-documentation
+ * Documentation YunoHost : https://yunohost.org/fr/app_codimd
 
 ## Caractéristiques spécifiques YunoHost
 
@@ -41,13 +41,13 @@ Vous pouvez configurer CodiMD en modifiant le fichier `/var/www/codimd/config.js
 
 #### Architectures supportées
 
-* x86-64 - [![Build Status](https://ci-apps.yunohost.org/ci/logs/codimd%20%28Apps%29.svg)](https://ci-apps.yunohost.org/ci/apps/codimd/)
-* ARMv8-A - [![Build Status](https://ci-apps-arm.yunohost.org/ci/logs/codimd%20%28Apps%29.svg)](https://ci-apps-arm.yunohost.org/ci/apps/codimd/)
+* x86-64 - [![Build Status](https://ci-apps.yunohost.org/ci/logs/codimd.svg)](https://ci-apps.yunohost.org/ci/apps/codimd/)
+* ARMv8-A - [![Build Status](https://ci-apps-arm.yunohost.org/ci/logs/codimd.svg)](https://ci-apps-arm.yunohost.org/ci/apps/codimd/)
 
 ## Liens
 
  * Signaler un bug : https://github.com/YunoHost-Apps/codimd_ynh/issues
- * Dépôt de l'application principale : https://github.com/hedgedoc/hedgedoc
+ * Dépôt de l'application principale : https://github.com/hackmdio/codimd
  * Site web YunoHost : https://yunohost.org/
 
 ---
