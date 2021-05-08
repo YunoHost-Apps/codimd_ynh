@@ -69,9 +69,6 @@ ynh_exec_warn_less ynh_install_app_dependencies $pkg_dependencies
 # Install Nodejs
 ynh_exec_warn_less ynh_install_nodejs --nodejs_version=$nodejs_version
 
-# Install Yarn
-ynh_install_extra_app_dependencies --repo="deb https://dl.yarnpkg.com/debian/ stable main" --package="yarn" --key="https://dl.yarnpkg.com/debian/pubkey.gpg"
-
 #=================================================
 # CREATE DEDICATED USER
 #=================================================
@@ -118,18 +115,8 @@ ynh_script_progression --message="Building CodiMD... (this will take some time a
 pushd "$final_path" || ynh_die
 	ynh_use_nodejs
 	ynh_exec_warn_less bin/setup 
-	ynh_exec_warn_less yarn run build
+	ynh_exec_warn_less ynh_npm run build
 popd || ynh_die
-
-#=================================================
-# SETUP SYSTEMD
-#=================================================
-ynh_script_progression --message="Configuring a systemd service..." --weight=1
-
-ynh_replace_string --match_string="__ENV_PATH__" --replace_string="$PATH" --target_file="../conf/systemd.service"
-ynh_replace_string --match_string="__YNH_NPM__" --replace_string="$ynh_npm" --target_file="../conf/systemd.service"
-
-ynh_add_systemd_config
 
 #=================================================
 # MODIFY A CONFIG FILE
@@ -137,9 +124,17 @@ ynh_add_systemd_config
 ynh_script_progression --message="Modifying a config file..."
 
 path=${path_url:1}
-
 ynh_add_config --template="../conf/config.json.example" --destination="$final_path/config.json"
 ynh_add_config --template="../conf/.sequelizerc.example" --destination="$final_path/.sequelizerc"
+
+#=================================================
+# SETUP SYSTEMD
+#=================================================
+ynh_script_progression --message="Configuring a systemd service..." --weight=1
+
+ynh_replace_string --match_string="__ENV_PATH__" --replace_string="$PATH" --target_file="../conf/systemd.service"
+
+ynh_add_systemd_config
 
 #=================================================
 # GENERIC FINALIZATION
