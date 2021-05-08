@@ -10,7 +10,7 @@
     "url": "https://github.com/hackmdio/codimd",
     "license": "AGPL-3.0-only",
     "maintainer": {
-        "name": "liberodark"
+        "name": ""
     },
     "requirements": {
         "yunohost": ">= 4.1.7"

@@ -19,7 +19,7 @@ CodiMD is a real-time collaborative word processing web service. It uses Markdow
 
 ## Demo
 
-* [Official demo](https://demo.codimd.org/)
+* [Official demo]()
 
 ## Configuration
 
@@ -39,8 +39,8 @@ You can configure CodiMD by editing this file `/var/www/codimd/config.json` usin
 
 #### Supported architectures
 
-* x86-64 - [![Build Status](https://ci-apps.yunohost.org/ci/logs/codimd%20%28Apps%29.svg)](https://ci-apps.yunohost.org/ci/apps/codimd/)
-* ARMv8-A - [![Build Status](https://ci-apps-arm.yunohost.org/ci/logs/codimd%20%28Apps%29.svg)](https://ci-apps-arm.yunohost.org/ci/apps/codimd/)
+* x86-64 - [![Build Status](https://ci-apps.yunohost.org/ci/logs/codimd.svg)](https://ci-apps.yunohost.org/ci/apps/codimd/)
+* ARMv8-A - [![Build Status](https://ci-apps-arm.yunohost.org/ci/logs/codimd.svg)](https://ci-apps-arm.yunohost.org/ci/apps/codimd/)
 
 ## Links
 
