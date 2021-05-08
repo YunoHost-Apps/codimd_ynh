@@ -3,17 +3,15 @@
 [![Integration level](https://dash.yunohost.org/integration/codimd.svg)](https://dash.yunohost.org/appci/app/codimd) ![](https://ci-apps.yunohost.org/ci/badges/codimd.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/codimd.maintain.svg)  
 [![Install CodiMD with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=codimd)
 
-> :warning: The CodiMD project has been renamed HedgeDoc. The YunoHost package for HedgeDoc is now hosted at this address https://github.com/YunoHost-Apps/hedgedoc_ynh. codimd_ynh will stay at version 1.6.0 and will no longer be updated.
-
 *[Lire ce readme en français.](./README_fr.md)*
 
 > *This package allows you to install CodiMD quickly and simply on a YunoHost server.  
-If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/install) to learn how to install it.*
+If you don't have YunoHost, please consult [the guide](https://yunohost.org/install) to learn how to install it.*
 
 ## Overview
 CodiMD is a real-time collaborative word processing web service. It uses Markdown language.
 
-**Shipped version:** 1.6.0
+**Shipped version:** 2.3.2
 
 ## Screenshots
 
@@ -29,8 +27,8 @@ You can configure CodiMD by editing this file `/var/www/codimd/config.json` usin
 
 ## Documentation
 
- * Official documentation: https://github.com/hedgedoc/hedgedoc/tree/master/docs
- * YunoHost documentation: https://yunohost.org/#/app_codimd
+ * Official documentation: https://hackmd.io/c/codimd-documentation/%2Fs%2Fcodimd-documentation
+ * YunoHost documentation: https://yunohost.org/en/app_codimd
 
 ## YunoHost specific features
 
@@ -47,7 +45,7 @@ You can configure CodiMD by editing this file `/var/www/codimd/config.json` usin
 ## Links
 
  * Report a bug: https://github.com/YunoHost-Apps/codimd_ynh/issues
- * Upstream app repository: https://github.com/hedgedoc/hedgedoc
+ * Upstream app repository: https://github.com/hackmdio/codimd
  * YunoHost website: https://yunohost.org/
 
 ---
