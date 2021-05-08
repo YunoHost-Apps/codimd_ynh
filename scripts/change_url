@@ -31,7 +31,7 @@ final_path=$(ynh_app_setting_get --app=$app --key=final_path)
 port=$(ynh_app_setting_get --app=$app --key=port)
 db_name=$(ynh_app_setting_get --app=$app --key=db_name)
 db_user=$db_name
-db_pwd=$(ynh_app_setting_get --app=$app --key=db_pwd)
+db_pwd=$(ynh_app_setting_get --app=$app --key=psqlpwd)
 
 #=================================================
 # BACKUP BEFORE UPGRADE THEN ACTIVE TRAP
@@ -113,7 +113,7 @@ fi
 ynh_backup_if_checksum_is_different --file="$final_path/config.json"
 
 domain=$new_domain
-path_url=$new_path
+path_url=${path_url:1}
 
 cp ../conf/config.json.example "$final_path/config.json"
 
@@ -135,7 +135,7 @@ ynh_store_file_checksum --file="$final_path/config.json"
 ynh_script_progression --message="Starting a systemd service..." --weight=1
 
 # Start a systemd service
-ynh_systemd_action --service_name=$app --action="start" --log_path="systemd" --line_match="HTTP Server listening"
+ynh_systemd_action --service_name=$app --action=start --log_path=systemd --line_match="HTTP Server listening"
 
 #=================================================
 # RELOAD NGINX
