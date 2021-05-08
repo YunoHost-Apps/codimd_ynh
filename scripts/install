@@ -116,7 +116,8 @@ chown -R $app: $final_path
 
 pushd "$final_path" || ynh_die
 	ynh_use_nodejs
-	ynh_exec_warn_less bin/setup 
+	ynh_exec_warn_less bin/setup
+	ynh_exec_as $app env $ynh_node_load_PATH npm update 
 	ynh_exec_as $app env $ynh_node_load_PATH npm run build
 popd || ynh_die
 
@@ -135,7 +136,7 @@ ynh_add_config --template="../conf/.sequelizerc.example" --destination="$final_p
 ynh_script_progression --message="Configuring a systemd service..." --weight=1
 
 ynh_replace_string --match_string="__ENV_PATH__" --replace_string="$PATH" --target_file="../conf/systemd.service"
-
+ynh_replace_string --match_string="__YNH_NPM__" --replace_string="$ynh_npm" --target_file="../conf/systemd.service"
 ynh_add_systemd_config
 
 #=================================================
