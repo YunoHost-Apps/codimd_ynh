@@ -117,8 +117,8 @@ ynh_script_progression --message="Building CodiMD... (this will take some time a
 
 pushd "$final_path" || ynh_die
 	ynh_use_nodejs
-	ynh_exec_warn_less ynh_exec_as $app bin/setup 
-	ynh_exec_warn_less ynh_exec_as $app yarn run build
+	ynh_exec_warn_less bin/setup 
+	ynh_exec_warn_less yarn run build
 popd || ynh_die
 
 #=================================================
@@ -150,7 +150,6 @@ ynh_script_progression --message="Securing files and directories..."
 
 # Set permissions to app files
 chown -R $app:$app $final_path
-chmod o-rwx $final_path
 chmod 600 $final_path/config.json
 chmod 600 $final_path/.sequelizerc
 
