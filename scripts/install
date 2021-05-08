@@ -112,10 +112,12 @@ ynh_add_nginx_config
 #==============================================
 ynh_script_progression --message="Building CodiMD... (this will take some time and resources!)" --weight=24
 
+chown -R $app: $final_path
+
 pushd "$final_path" || ynh_die
 	ynh_use_nodejs
 	ynh_exec_warn_less bin/setup 
-	ynh_exec_warn_less ynh_npm run build
+	ynh_exec_as $app env $ynh_node_load_PATH npm run build
 popd || ynh_die
 
 #=================================================
