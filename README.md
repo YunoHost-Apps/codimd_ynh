@@ -11,7 +11,7 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/inst
 ## Overview
 CodiMD is a real-time collaborative word processing web service. It uses Markdown language.
 
-**Shipped version:** 2.3.2
+**Shipped version:** 2.4.1
 
 ## Screenshots
 

@@ -11,7 +11,7 @@ Si vous n'avez pas YunoHost, consultez [le guide](https://yunohost.org/install) 
 ## Vue d'ensemble
 CodiMD est un service web de traitement de texte collaboratif en temps réel. Il utilise le langage Markdown.
 
-**Version incluse :** 2.3.2
+**Version incluse :** 2.4.1
 
 ## Captures d'écran
 
