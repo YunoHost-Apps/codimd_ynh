@@ -10,7 +10,8 @@ Group=__APP__
 WorkingDirectory=__FINALPATH__
 Environment="PATH=__ENV_PATH__"
 Environment="NODE_ENV=production"
-ExecStart=__YNH_NPM__ start --production
+ExecStart=node app.js
+#__YNH_NPM__ 
 Restart=always
 PrivateTmp=true
 PrivateDevices=true
