@@ -116,11 +116,8 @@ chown -R $app: $final_path
 
 pushd "$final_path" || ynh_die
 	ynh_use_nodejs
-	#ynh_exec_warn_less 
 	bin/setup
-	#ynh_exec_as $app env $ynh_node_load_PATH 
 	npm update 
-	#ynh_exec_as $app env $ynh_node_load_PATH 
 	npm run build
 popd || ynh_die
 

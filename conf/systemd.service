@@ -8,9 +8,8 @@ Type=simple
 User=__APP__
 Group=__APP__
 WorkingDirectory=__FINALPATH__
-Environment="PATH=__ENV_PATH__"
 Environment="NODE_ENV=production"
-ExecStart=node app.js
+ExecStart=__FINALPATH__ app.js
 #__YNH_NPM__ 
 Restart=always
 PrivateTmp=true
@@ -18,3 +17,5 @@ PrivateDevices=true
 
 [Install]
 WantedBy=multi-user.target
+
+
