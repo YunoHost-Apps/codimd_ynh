@@ -75,7 +75,7 @@ ynh_exec_warn_less ynh_install_nodejs --nodejs_version=$nodejs_version
 ynh_script_progression --message="Configuring system user..." --weight=2
 
 # Create a system user
-ynh_system_user_create --username=$app
+ynh_system_user_create --username=$app --home_dir="$final_path"
 
 #=================================================
 # CREATE A POSTGRESQL DATABASE
@@ -97,6 +97,10 @@ ynh_app_setting_set --app=$app --key=final_path --value=$final_path
 # Download, check integrity, uncompress and patch the source from app.src
 ynh_setup_source --dest_dir=$final_path
 
+chmod 750 "$final_path"
+chmod -R o-rwx "$final_path"
+chown -R $app:www-data "$final_path"
+
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
@@ -116,9 +120,9 @@ chown -R $app: $final_path
 
 pushd "$final_path" || ynh_die
 	ynh_use_nodejs
-	bin/setup
-	npm update 
-	npm run build
+	ynh_exec_warn_less bin/setup
+	#npm update 
+	ynh_exec_warn_less npm run build
 popd || ynh_die
 
 #=================================================
@@ -129,6 +133,8 @@ ynh_script_progression --message="Modifying a config file..."
 path=${path_url:1}
 ynh_add_config --template="../conf/config.json.example" --destination="$final_path/config.json"
 ynh_add_config --template="../conf/.sequelizerc.example" --destination="$final_path/.sequelizerc"
+chmod 600 $final_path/config.json
+chmod 600 $final_path/.sequelizerc
 
 #=================================================
 # SETUP SYSTEMD
@@ -136,20 +142,7 @@ ynh_add_config --template="../conf/.sequelizerc.example" --destination="$final_p
 ynh_script_progression --message="Configuring a systemd service..." --weight=1
 
 ynh_replace_string --match_string="__ENV_PATH__" --replace_string="$PATH" --target_file="../conf/systemd.service"
-ynh_replace_string --match_string="__YNH_NPM__" --replace_string="$ynh_npm" --target_file="../conf/systemd.service"
 ynh_add_systemd_config
-
-#=================================================
-# GENERIC FINALIZATION
-#=================================================
-# SECURE FILES AND DIRECTORIES
-#=================================================
-ynh_script_progression --message="Securing files and directories..."
-
-# Set permissions to app files
-chown -R $app: $final_path
-chmod 600 $final_path/config.json
-chmod 600 $final_path/.sequelizerc
 
 #=================================================
 # INTEGRATE SERVICE IN YUNOHOST
