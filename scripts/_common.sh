@@ -5,9 +5,9 @@
 #=================================================
 
 # dependencies used by the app
-pkg_dependencies="postgresql apt-transport-https"
+pkg_dependencies="postgresql apt-transport-https libssl-dev"
 
-nodejs_version=12
+nodejs_version=11
 
 #=================================================
 # PERSONAL HELPERS
