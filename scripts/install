@@ -97,11 +97,6 @@ ynh_app_setting_set --app=$app --key=final_path --value=$final_path
 # Download, check integrity, uncompress and patch the source from app.src
 ynh_setup_source --dest_dir=$final_path
 
-chmod 755 "$final_path"
-#chmod -R o-rwx "$final_path"
-chown -R $app:www-data "$final_path"
-chmod +x "$final_path/app.js"
-
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
@@ -133,6 +128,11 @@ ynh_add_config --template="../conf/config.json.example" --destination="$final_pa
 ynh_add_config --template="../conf/.sequelizerc.example" --destination="$final_path/.sequelizerc"
 chmod 600 $final_path/config.json
 chmod 600 $final_path/.sequelizerc
+
+chmod 755 "$final_path"
+#chmod -R o-rwx "$final_path"
+chown -R $app:www-data "$final_path"
+chmod +x "$final_path/app.js"
 
 #=================================================
 # SETUP SYSTEMD
