@@ -118,8 +118,8 @@ ynh_script_progression --message="Building CodiMD... (this will take some time a
 
 pushd $final_path
 	ynh_use_nodejs
-	ynh_exec_warn_less bin/setup
-	ynh_exec_warn_less npm run build
+	ynh_exec_as $app env $ynh_node_load_PATH bin/setup
+	ynh_exec_as $app env $ynh_node_load_PATH npm run build
 popd
 
 #=================================================
