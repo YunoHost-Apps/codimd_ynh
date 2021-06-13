@@ -77,6 +77,10 @@ ynh_script_progression --message="Configuring system user..." --weight=2
 # Create a system user
 ynh_system_user_create --username=$app --home_dir="$final_path"
 
+chmod 755 "$final_path"
+#chmod -R o-rwx "$final_path"
+chown -R $app:www-data "$final_path"
+
 #=================================================
 # CREATE A POSTGRESQL DATABASE
 #=================================================
@@ -129,9 +133,6 @@ ynh_add_config --template="../conf/.sequelizerc.example" --destination="$final_p
 chmod 600 $final_path/config.json
 chmod 600 $final_path/.sequelizerc
 
-chmod 755 "$final_path"
-#chmod -R o-rwx "$final_path"
-chown -R $app:www-data "$final_path"
 chmod +x "$final_path/app.js"
 
 #=================================================
