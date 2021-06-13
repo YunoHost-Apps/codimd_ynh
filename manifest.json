@@ -27,12 +27,6 @@
                 "example": "domain.org"
             },
             {
-                "name": "path",
-                "type": "path",
-                "example": "/codimd",
-                "default": "/codimd"
-            },
-            {
                 "name": "is_public",
                 "type": "boolean",
                 "help": {
