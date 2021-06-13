@@ -13,7 +13,7 @@
         "name": ""
     },
     "requirements": {
-        "yunohost": ">= 4.1.8"
+        "yunohost": ">= 4.2.4"
     },
     "multi_instance": true,
     "services": [
