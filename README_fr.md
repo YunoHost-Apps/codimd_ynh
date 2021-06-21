@@ -23,14 +23,14 @@ Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour
 
 ## Avertissements / informations importantes
 
-### Multi-user support
+### Prise en charge multi-utilisateurs
 
-* Is LDAP supported? **Yes**
-* Can the app be used by multiple users? **Yes**
+* LDAP est-il pris en charge ? **Oui**
+* L'application peut-elle être utilisée par plusieurs utilisateurs ? **Oui**
 
 ### Configuration
 
-You can configure CodiMD by editing this file `/var/www/codimd/config.json` using the [documentation](https://hackmd.io/c/codimd-documentation/%2Fs%2Fcodimd-configuration)
+Vous pouvez configurer CodiMD en éditant ce fichier `/var/www/codimd/config.json` en utilisant la [documentation](https://hakmd.io/c/codimd-documentation/%2Fs%2Fcodimd-configuration)
 
 ## Documentations et ressources
 
