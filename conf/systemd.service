@@ -10,7 +10,7 @@ Group=__APP__
 WorkingDirectory=__FINALPATH__
 Environment="NODE_ENV=production"
 Environment="__YNH_NODE_LOAD_PATH__"
-ExecStart=__FINALPATH__ app.js
+ExecStart=__YNH_NODE__ app.js
 Restart=always
 PrivateTmp=true
 PrivateDevices=true
