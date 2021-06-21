@@ -133,11 +133,11 @@ if [ "$upgrade_type" == "UPGRADE_APP" ]
 then
 	ynh_script_progression --message="Building CodiMD... (this will take some time and resources!)" --weight=16
 
-	pushd "$final_path" || ynh_die
+	pushd "$final_path"
 		ynh_use_nodejs
 		ynh_exec_warn_less bin/setup
 		ynh_exec_warn_less ynh_npm run build
-	popd || ynh_die
+	popd
 fi
 
 #=================================================
