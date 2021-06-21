@@ -3,7 +3,6 @@
         "protocolUseSSL": true,
         "domain": "__DOMAIN__",
         "port": "__PORT__",
-        "urlPath": "__PATH__",
         "loglevel": "info",
         "useCDN": false,
         "allowGravatar": false,
