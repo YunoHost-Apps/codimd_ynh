@@ -17,7 +17,7 @@ old_domain=$YNH_APP_OLD_DOMAIN
 old_path=$YNH_APP_OLD_PATH
 
 new_domain=$YNH_APP_NEW_DOMAIN
-new_path=$YNH_APP_NEW_PATH
+path_url="/"
 
 app=$YNH_APP_INSTANCE_NAME
 
@@ -60,12 +60,6 @@ then
 	change_domain=1
 fi
 
-change_path=0
-if [ "$old_path" != "$new_path" ]
-then
-	change_path=1
-fi
-
 #=================================================
 # STANDARD MODIFICATIONS
 #=================================================
@@ -81,18 +75,6 @@ ynh_systemd_action --service_name=$app --action="stop" --log_path="/var/log/$app
 ynh_script_progression --message="Updating NGINX web server configuration..." --weight=1
 
 nginx_conf_path=/etc/nginx/conf.d/$old_domain.d/$app.conf
-
-# Change the path in the nginx config file
-if [ $change_path -eq 1 ]
-then
-	# Make a backup of the original nginx config file if modified
-	ynh_backup_if_checksum_is_different --file="$nginx_conf_path"
-	# Set global variables for nginx helper
-	domain="$old_domain"
-	path_url="$new_path"
-	# Create a dedicated nginx config
-	ynh_add_nginx_config
-fi
 
 # Change the domain for nginx
 if [ $change_domain -eq 1 ]
@@ -110,21 +92,9 @@ fi
 # CONFIGURE CODIMD
 #=================================================
 
-ynh_backup_if_checksum_is_different --file="$final_path/config.json"
-
-domain=$new_domain
-path_url=${path_url:1}
-
-cp ../conf/config.json.example "$final_path/config.json"
-
-ynh_replace_string --match_string="__PORT__" --replace_string="$port" --target_file="$final_path/config.json"
-ynh_replace_string --match_string="__DOMAIN__" --replace_string="$domain" --target_file="$final_path/config.json"
-ynh_replace_string --match_string="__PATH__" --replace_string="${path_url:1}" --target_file="$final_path/config.json"
-ynh_replace_string --match_string="__DB_NAME__" --replace_string="$db_name" --target_file="$final_path/config.json"
-ynh_replace_string --match_string="__DB_PWD__" --replace_string="$db_pwd" --target_file="$final_path/config.json"
-ynh_replace_string --match_string="__APP__" --replace_string="$app" --target_file="$final_path/config.json"
-
-ynh_store_file_checksum --file="$final_path/config.json"
+path=${path_url:1}
+domain=new_domain
+ynh_add_config --template="../conf/config.json.example" --destination="$final_path/config.json"
 
 #=================================================
 # GENERIC FINALISATION

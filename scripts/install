@@ -24,7 +24,7 @@ ynh_abort_if_errors
 #=================================================
 
 domain=$YNH_APP_ARG_DOMAIN
-path_url=$YNH_APP_ARG_PATH
+path_url="/"
 is_public=$YNH_APP_ARG_IS_PUBLIC
 
 app=$YNH_APP_INSTANCE_NAME
@@ -75,7 +75,7 @@ ynh_exec_warn_less ynh_install_nodejs --nodejs_version=$nodejs_version
 ynh_script_progression --message="Configuring system user..." --weight=2
 
 # Create a system user
-ynh_system_user_create --username=$app
+ynh_system_user_create --username=$app --home_dir="$final_path"
 
 #=================================================
 # CREATE A POSTGRESQL DATABASE
@@ -97,6 +97,10 @@ ynh_app_setting_set --app=$app --key=final_path --value=$final_path
 # Download, check integrity, uncompress and patch the source from app.src
 ynh_setup_source --dest_dir=$final_path
 
+chmod 755 "$final_path"
+#chmod -R o-rwx "$final_path"
+chown -R $app: "$final_path"
+
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
@@ -112,14 +116,11 @@ ynh_add_nginx_config
 #==============================================
 ynh_script_progression --message="Building CodiMD... (this will take some time and resources!)" --weight=24
 
-chown -R $app: $final_path
-
-pushd "$final_path" || ynh_die
+pushd $final_path
 	ynh_use_nodejs
-	ynh_exec_warn_less bin/setup
-	ynh_exec_as $app env $ynh_node_load_PATH npm update 
+	ynh_exec_as $app env $ynh_node_load_PATH bin/setup
 	ynh_exec_as $app env $ynh_node_load_PATH npm run build
-popd || ynh_die
+popd
 
 #=================================================
 # MODIFY A CONFIG FILE
@@ -129,27 +130,17 @@ ynh_script_progression --message="Modifying a config file..."
 path=${path_url:1}
 ynh_add_config --template="../conf/config.json.example" --destination="$final_path/config.json"
 ynh_add_config --template="../conf/.sequelizerc.example" --destination="$final_path/.sequelizerc"
+chmod 600 $final_path/config.json
+chmod 600 $final_path/.sequelizerc
+
+chmod +x $final_path/app.js
 
 #=================================================
 # SETUP SYSTEMD
 #=================================================
 ynh_script_progression --message="Configuring a systemd service..." --weight=1
 
-ynh_replace_string --match_string="__ENV_PATH__" --replace_string="$PATH" --target_file="../conf/systemd.service"
-ynh_replace_string --match_string="__YNH_NPM__" --replace_string="$ynh_npm" --target_file="../conf/systemd.service"
 ynh_add_systemd_config
-
-#=================================================
-# GENERIC FINALIZATION
-#=================================================
-# SECURE FILES AND DIRECTORIES
-#=================================================
-ynh_script_progression --message="Securing files and directories..."
-
-# Set permissions to app files
-chown -R $app: $final_path
-chmod 600 $final_path/config.json
-chmod 600 $final_path/.sequelizerc
 
 #=================================================
 # INTEGRATE SERVICE IN YUNOHOST

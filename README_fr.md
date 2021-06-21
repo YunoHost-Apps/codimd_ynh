@@ -3,52 +3,43 @@
 [![Niveau d'intégration](https://dash.yunohost.org/integration/codimd.svg)](https://dash.yunohost.org/appci/app/codimd) ![](https://ci-apps.yunohost.org/ci/badges/codimd.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/codimd.maintain.svg)  
 [![Installer CodiMD avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=codimd)
 
-*[Read this readme in english.](./README.md)* 
+*[Read this readme in english.](./README.md)*
+*[Lire ce readme en français.](./README_fr.md)*
 
-> *Ce package vous permet d'installer CodiMD rapidement et simplement sur un serveur YunoHost.  
-Si vous n'avez pas YunoHost, consultez [le guide](https://yunohost.org/install) pour apprendre comment l'installer.*
+> *Ce package vous permet d'installer CodiMD rapidement et simplement sur un serveur YunoHost.
+Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour savoir comment l'installer et en profiter.*
 
 ## Vue d'ensemble
-CodiMD est un service web de traitement de texte collaboratif en temps réel. Il utilise le langage Markdown.
 
-**Version incluse :** 2.3.2
+Éditeur collaboratif pour travailler sur des notes en Markdown
+
+**Version incluse :** 2.4.1~ynh1
+
+
 
 ## Captures d'écran
 
-![](https://raw.githubusercontent.com/hackmdio/codimd/develop/public/screenshot.png)
+![](./doc/screenshots/screenshot.png)
 
-## Démo
+## Avertissements / informations importantes
 
-* [Démo officielle]()
+### Multi-user support
 
-## Configuration
+* Is LDAP supported? **Yes**
+* Can the app be used by multiple users? **Yes**
 
-Vous pouvez configurer CodiMD en modifiant le fichier `/var/www/codimd/config.json` et en vous aidant de la [documentation](https://hackmd.io/c/codimd-documentation/%2Fs%2Fcodimd-configuration)
+### Configuration
 
-## Documentation
+You can configure CodiMD by editing this file `/var/www/codimd/config.json` using the [documentation](https://hackmd.io/c/codimd-documentation/%2Fs%2Fcodimd-configuration)
 
- * Documentation officielle : https://hackmd.io/c/codimd-documentation
- * Documentation YunoHost : https://yunohost.org/fr/app_codimd
+## Documentations et ressources
 
-## Caractéristiques spécifiques YunoHost
-
-#### Support multi-utilisateur
-
-* L'authentification LDAP est-elle prise en charge ? **Oui**
-* L'application peut-elle être utilisée par plusieurs utilisateurs ? **Oui**
-
-#### Architectures supportées
-
-* x86-64 - [![Build Status](https://ci-apps.yunohost.org/ci/logs/codimd.svg)](https://ci-apps.yunohost.org/ci/apps/codimd/)
-* ARMv8-A - [![Build Status](https://ci-apps-arm.yunohost.org/ci/logs/codimd.svg)](https://ci-apps-arm.yunohost.org/ci/apps/codimd/)
-
-## Liens
-
- * Signaler un bug : https://github.com/YunoHost-Apps/codimd_ynh/issues
- * Dépôt de l'application principale : https://github.com/hackmdio/codimd
- * Site web YunoHost : https://yunohost.org/
-
----
+* Site officiel de l'app : https://hackmd.io/
+* Documentation officielle utilisateur : https://hackmd.io/c/codimd-documentation/%2Fs%2Fcodimd-documentation#User-Guides
+* Documentation officielle de l'admin : https://hackmd.io/c/codimd-documentation/%2Fs%2Fcodimd-documentation#Administration-Guides
+* Dépôt de code officiel de l'app : https://github.com/hackmdio/codimd
+* Documentation YunoHost pour cette app : https://yunohost.org/app_codimd
+* Signaler un bug : https://github.com/YunoHost-Apps/codimd_ynh/issues
 
 ## Informations pour les développeurs
 
@@ -60,9 +51,5 @@ sudo yunohost app install https://github.com/YunoHost-Apps/codimd_ynh/tree/testi
 ou
 sudo yunohost app upgrade codimd -u https://github.com/YunoHost-Apps/codimd_ynh/tree/testing --debug
 ```
-it.
-```
-sudo yunohost app install https://github.com/YunoHost-Apps/codimd_ynh/tree/testing --debug
-ou
-sudo yunohost app upgrade codimd -u https://github.com/YunoHost-Apps/codimd_ynh/tree/testing --debug
-```
+
+**Plus d'infos sur le packaging d'applications :** https://yunohost.org/packaging_apps

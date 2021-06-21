@@ -6,16 +6,23 @@
         "en": "Collaborative editor to work on notes written in Markdown",
         "fr": "Éditeur collaboratif pour travailler sur des notes en Markdown"
     },
-    "version": "2.3.2~ynh1",
+    "version": "2.4.1~ynh1",
     "url": "https://github.com/hackmdio/codimd",
+    "upstream": {
+        "license": "AGPL-3.0-only",
+        "website": "https://hackmd.io/",
+        "admindoc": "https://hackmd.io/c/codimd-documentation/%2Fs%2Fcodimd-documentation#Administration-Guides",
+        "userdoc": "https://hackmd.io/c/codimd-documentation/%2Fs%2Fcodimd-documentation#User-Guides",
+        "code": "https://github.com/hackmdio/codimd"
+    },
     "license": "AGPL-3.0-only",
     "maintainer": {
         "name": ""
     },
     "requirements": {
-        "yunohost": ">= 4.1.8"
+        "yunohost": ">= 4.2.4"
     },
-    "multi_instance": true,
+    "multi_instance": false,
     "services": [
         "nginx"
     ],
@@ -25,12 +32,6 @@
                 "name": "domain",
                 "type": "domain",
                 "example": "domain.org"
-            },
-            {
-                "name": "path",
-                "type": "path",
-                "example": "/codimd",
-                "default": "/codimd"
             },
             {
                 "name": "is_public",
