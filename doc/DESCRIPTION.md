@@ -1,0 +1,3 @@
+CodiMD is the free software version of HackMD, developed and opened source by the HackMD team with reduced features (without book mode), you can use CodiMD for your community and own all your data. [(See the origin of the name CodiMD.)](https://github.com/hackmdio/codimd/issues/720)
+
+CodiMD is perfect for open communities, while HackMD emphasizes on permission and access controls for commercial use cases.
