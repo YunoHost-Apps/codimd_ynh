@@ -1,3 +1,3 @@
-CodiMD est la version logicielle libre de HackMD, développée et ouverte par l'équipe HackMD avec des fonctionnalités réduites (sans mode livre), vous pouvez utiliser CodiMD pour votre communauté et posséder toutes vos données. [(Voir l'origine du nom CodiMD.)](https://github.com/hackmdio/codimd/issues/720)
+CodiMD est la version logicielle libre de HackMD, développée et ouverte par l'équipe HackMD avec des fonctionnalités réduites (sans mode livre), vous pouvez utiliser CodiMD pour votre communauté et posséder toutes vos données. ([Voir l'origine du nom CodiMD.])(https://github.com/hackmdio/codimd/issues/720)
 
 CodiMD est parfait pour les communautés ouvertes, tandis que HackMD met l'accent sur les autorisations et les contrôles d'accès pour les cas d'utilisation commerciale.
