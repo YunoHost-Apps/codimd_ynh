@@ -125,14 +125,13 @@ popd
 #=================================================
 # MODIFY A CONFIG FILE
 #=================================================
-ynh_script_progression --message="Modifying a config file..."
+ynh_script_progression --message="Modifying a config file..." --weight=1
 
-path=${path_url:1}
 ynh_add_config --template="../conf/config.json.example" --destination="$final_path/config.json"
-chmod 600 $final_path/config.json
 ynh_add_config --template="../conf/.sequelizerc.example" --destination="$final_path/.sequelizerc"
-chmod 600 $final_path/.sequelizerc
 
+chmod 600 $final_path/config.json
+chmod 600 $final_path/.sequelizerc
 chmod +x $final_path/app.js
 
 #=================================================
@@ -145,7 +144,7 @@ ynh_add_systemd_config
 #=================================================
 # INTEGRATE SERVICE IN YUNOHOST
 #=================================================
-ynh_script_progression --message="Integrating service in YunoHost..."
+ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
 
 yunohost service add $app --description="Collaborative Markdown notes" --log="/var/log/$app/$app.log"
 
