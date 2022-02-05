@@ -123,9 +123,9 @@ pushd $final_path
 popd
 
 #=================================================
-# MODIFY A CONFIG FILE
+# ADD A CONFIGURATION
 #=================================================
-ynh_script_progression --message="Modifying a config file..."
+ynh_script_progression --message="Adding a configuration file..."
 
 path=${path_url:1}
 ynh_add_config --template="../conf/config.json.example" --destination="$final_path/config.json"
@@ -140,6 +140,7 @@ chmod +x $final_path/app.js
 #=================================================
 ynh_script_progression --message="Configuring a systemd service..." --weight=1
 
+# Create a dedicated systemd config
 ynh_add_systemd_config
 
 #=================================================
@@ -162,9 +163,11 @@ ynh_systemd_action --service_name=$app --action=start --log_path=systemd --line_
 #=================================================
 ynh_script_progression --message="Configuring permissions..." --weight=1
 
-# Make app public if necessary or protect it
+# Make app public if necessary
 if [ $is_public -eq 1 ]
 then
+	# Everyone can access the app.
+	# The "main" permission is automatically created before the install script.
 	ynh_permission_update --permission="main" --add="visitors"
 fi
 
@@ -179,4 +182,4 @@ ynh_systemd_action --service_name=nginx --action=reload
 # END OF SCRIPT
 #=================================================
 
-ynh_script_progression --message="Installation of CodiMD completed" --last
+ynh_script_progression --message="Installation of $app completed" --last

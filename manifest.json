@@ -6,7 +6,7 @@
         "en": "Collaborative editor to work on notes written in Markdown",
         "fr": "Éditeur collaboratif pour travailler sur des notes en Markdown"
     },
-    "version": "2.4.1~ynh4",
+    "version": "2.4.1~ynh5",
     "url": "https://github.com/hackmdio/codimd",
     "upstream": {
         "license": "AGPL-3.0-only",
