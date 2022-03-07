@@ -83,24 +83,24 @@ then
 	ynh_script_progression --message="Upgrading source files..." --weight=16
 
 	# Create a temporary directory
-	tmpdir="$(mktemp -d)"
+	#tmpdir="$(mktemp -d)"
 	
 	# Backup the config file in the temp dir
-	cp -a "$final_path/config.json" "$tmpdir/config.json"
-	cp -a "$final_path/.sequelizerc" "$tmpdir/.sequelizerc"
+	#cp -a "$final_path/config.json" "$tmpdir/config.json"
+	#cp -a "$final_path/.sequelizerc" "$tmpdir/.sequelizerc"
 	
 	# Remove the app directory securely
-	ynh_secure_remove --file=$final_path
+	#ynh_secure_remove --file=$final_path
 
 	# Download, check integrity, uncompress and patch the source from app.src
-	ynh_setup_source --dest_dir=$final_path
+	ynh_setup_source --dest_dir=$final_path --keep="$final_path/config.json $final_path/.sequelizerc"
 
 	#Copy the admin saved settings from tmp directory to final path	
-	cp -a "$tmpdir/config.json" "$final_path/config.json" 
-	cp -a "$tmpdir/.sequelizerc" "$final_path/.sequelizerc"
+	#cp -a "$tmpdir/config.json" "$final_path/config.json" 
+	#cp -a "$tmpdir/.sequelizerc" "$final_path/.sequelizerc"
 
 	# Remove the tmp directory securely
-	ynh_secure_remove --file="$tmpdir"
+	#ynh_secure_remove --file="$tmpdir"
 fi
 
 chmod 750 "$final_path"

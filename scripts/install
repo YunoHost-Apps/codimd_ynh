@@ -83,10 +83,10 @@ ynh_system_user_create --username=$app --home_dir="$final_path"
 ynh_script_progression --message="Creating a PostgreSQL database..." --weight=2
 
 db_name=$(ynh_sanitize_dbid --db_name=$app)
-db_pwd=$(ynh_app_setting_get --app=$app --key=psqlpwd)
+db_user=$db_name
 ynh_app_setting_set --app=$app --key=db_name --value=$db_name
 ynh_psql_test_if_first_run
-ynh_psql_setup_db --db_user=$db_name --db_name=$db_name
+ynh_psql_setup_db --db_user=$db_user --db_name=$db_name
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -125,14 +125,13 @@ popd
 #=================================================
 # ADD A CONFIGURATION
 #=================================================
-ynh_script_progression --message="Adding a configuration file..."
+ynh_script_progression --message="Modifying a config file..." --weight=1
 
-path=${path_url:1}
 ynh_add_config --template="../conf/config.json.example" --destination="$final_path/config.json"
-chmod 600 $final_path/config.json
 ynh_add_config --template="../conf/.sequelizerc.example" --destination="$final_path/.sequelizerc"
-chmod 600 $final_path/.sequelizerc
 
+chmod 600 $final_path/config.json
+chmod 600 $final_path/.sequelizerc
 chmod +x $final_path/app.js
 
 #=================================================
@@ -146,7 +145,7 @@ ynh_add_systemd_config
 #=================================================
 # INTEGRATE SERVICE IN YUNOHOST
 #=================================================
-ynh_script_progression --message="Integrating service in YunoHost..."
+ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
 
 yunohost service add $app --description="Collaborative Markdown notes" --log="/var/log/$app/$app.log"
 
