@@ -5,7 +5,7 @@ It shall NOT be edited by hand.
 
 # CodiMD for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/codimd.svg)](https://dash.yunohost.org/appci/app/codimd) ![](https://ci-apps.yunohost.org/ci/badges/codimd.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/codimd.maintain.svg)  
+[![Integration level](https://dash.yunohost.org/integration/codimd.svg)](https://dash.yunohost.org/appci/app/codimd) ![Working status](https://ci-apps.yunohost.org/ci/badges/codimd.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/codimd.maintain.svg)  
 [![Install CodiMD with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=codimd)
 
 *[Lire ce readme en français.](./README_fr.md)*
@@ -21,11 +21,9 @@ CodiMD is perfect for open communities, while HackMD emphasizes on permission an
 
 **Shipped version:** 2.4.1~ynh6
 
-
-
 ## Screenshots
 
-![](./doc/screenshots/screenshot.png)
+![Screenshot of CodiMD](./doc/screenshots/screenshot.png)
 
 ## Disclaimers / important information
 
@@ -40,22 +38,23 @@ You can configure CodiMD by editing this file `/var/www/codimd/config.json` usin
 
 ## Documentation and resources
 
-* Official app website: https://hackmd.io/
-* Official user documentation: https://hackmd.io/c/codimd-documentation/%2Fs%2Fcodimd-documentation#User-Guides
-* Official admin documentation: https://hackmd.io/c/codimd-documentation/%2Fs%2Fcodimd-documentation#Administration-Guides
-* Upstream app code repository: https://github.com/hackmdio/codimd
-* YunoHost documentation for this app: https://yunohost.org/app_codimd
-* Report a bug: https://github.com/YunoHost-Apps/codimd_ynh/issues
+* Official app website: <https://hackmd.io/>
+* Official user documentation: <https://hackmd.io/c/codimd-documentation/%2Fs%2Fcodimd-documentation#User-Guides>
+* Official admin documentation: <https://hackmd.io/c/codimd-documentation/%2Fs%2Fcodimd-documentation#Administration-Guides>
+* Upstream app code repository: <https://github.com/hackmdio/codimd>
+* YunoHost documentation for this app: <https://yunohost.org/app_codimd>
+* Report a bug: <https://github.com/YunoHost-Apps/codimd_ynh/issues>
 
 ## Developer info
 
 Please send your pull request to the [testing branch](https://github.com/YunoHost-Apps/codimd_ynh/tree/testing).
 
 To try the testing branch, please proceed like that.
-```
+
+``` bash
 sudo yunohost app install https://github.com/YunoHost-Apps/codimd_ynh/tree/testing --debug
 or
 sudo yunohost app upgrade codimd -u https://github.com/YunoHost-Apps/codimd_ynh/tree/testing --debug
 ```
 
-**More info regarding app packaging:** https://yunohost.org/packaging_apps
+**More info regarding app packaging:** <https://yunohost.org/packaging_apps>
