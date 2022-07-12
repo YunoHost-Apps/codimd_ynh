@@ -100,6 +100,7 @@ ynh_setup_source --dest_dir=$final_path
 chmod 750 "$final_path"
 chmod -R o-rwx "$final_path"
 chown -R $app:www-data "$final_path"
+chmod +x $final_path/app.js
 
 #=================================================
 # NGINX CONFIGURATION
@@ -118,8 +119,8 @@ ynh_script_progression --message="Building CodiMD... (this will take some time a
 
 pushd $final_path
 	ynh_use_nodejs
-	ynh_exec_as $app env $ynh_node_load_PATH bin/setup
-	ynh_exec_as $app env $ynh_node_load_PATH $ynh_npm run build
+	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH bin/setup
+	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH $ynh_npm run build
 popd
 
 #=================================================
@@ -132,7 +133,6 @@ ynh_add_config --template="../conf/.sequelizerc.example" --destination="$final_p
 
 chmod 600 $final_path/config.json
 chmod 600 $final_path/.sequelizerc
-chmod +x $final_path/app.js
 
 #=================================================
 # SETUP SYSTEMD
