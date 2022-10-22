@@ -21,7 +21,6 @@ CodiMD is perfect for open communities, while HackMD emphasizes on permission an
 
 **Shipped version:** 2.4.2~ynh1
 
-
 ## Screenshots
 
 ![Screenshot of CodiMD](./doc/screenshots/screenshot.png)
