@@ -4,9 +4,6 @@
 # COMMON VARIABLES
 #=================================================
 
-# dependencies used by the app
-#REMOVEME? pkg_dependencies="postgresql apt-transport-https libssl-dev"
-
 nodejs_version=12
 
 #=================================================
