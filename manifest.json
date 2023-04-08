@@ -21,7 +21,7 @@
         "name": "eric_G"
     },
     "requirements": {
-        "yunohost": ">= 4.3.0"
+        "yunohost": ">= 11.1.17"
     },
     "multi_instance": false,
     "services": [
