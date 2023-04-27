@@ -1,5 +1,0 @@
-SOURCE_URL=https://github.com/hackmdio/codimd/archive/refs/tags/2.4.2.tar.gz
-SOURCE_SUM=ba471b58ac0b3307544311eddc99afc27df8dbd07cd85bf2f4f9687e80cf0730
-SOURCE_SUM_PRG=sha256sum
-SOURCE_FORMAT=tar.gz
-SOURCE_IN_SUBDIR=true
