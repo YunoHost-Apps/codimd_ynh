@@ -1,0 +1,59 @@
+packaging_format = 2
+
+id = "codimd"
+name = "CodiMD"
+description.en = "Collaborative editor to work on notes written in Markdown"
+description.fr = "Éditeur collaboratif pour travailler sur des notes en Markdown"
+
+version = "2.4.2~ynh1"
+
+maintainers = ["eric_G"]
+
+[upstream]
+license = "AGPL-3.0-only"
+website = "https://hackmd.io/"
+admindoc = "https://hackmd.io/c/codimd-documentation/%2Fs%2Fcodimd-documentation#Administration-Guides"
+userdoc = "https://hackmd.io/c/codimd-documentation/%2Fs%2Fcodimd-documentation#User-Guides"
+code = "https://github.com/hackmdio/codimd"
+
+[integration]
+yunohost = ">= 11.1.17"
+architectures = ["amd64"]
+multi_instance = false
+ldap = true
+sso = true
+disk = "50M"
+ram.build = "50M"
+ram.runtime = "50M"
+
+[install]
+    [install.domain]
+    type = "domain"
+    full_domain = true
+
+    [install.init_main_permission]
+    help.en = "If enabled, CodiMD will be accessible by people who do not have an account. This can be changed later via the webadmin."
+    help.fr = "Si cette case est cochée, CodiMD sera accessible aux personnes n’ayant pas de compte. Vous pourrez changer ceci plus tard via la webadmin."
+    type = "group"
+    default = "visitors"
+
+[resources]
+        [resources.sources.main]
+        url = "https://github.com/hackmdio/codimd/archive/refs/tags/2.4.2.tar.gz"
+        sha256 = "ba471b58ac0b3307544311eddc99afc27df8dbd07cd85bf2f4f9687e80cf0730"
+        autoupdate.strategy = "latest_github_tag"
+
+    [resources.ports]
+
+    [resources.system_user]
+
+    [resources.install_dir]
+
+    [resources.permissions]
+    main.url = "/"
+
+    [resources.apt]
+    packages = "postgresql libssl-dev"
+
+    [resources.database]
+    type = "postgresql"
