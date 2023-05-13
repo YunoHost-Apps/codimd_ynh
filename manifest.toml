@@ -17,7 +17,7 @@ userdoc = "https://hackmd.io/c/codimd-documentation/%2Fs%2Fcodimd-documentation#
 code = "https://github.com/hackmdio/codimd"
 
 [integration]
-yunohost = ">= 11.1.18"
+yunohost = ">= 11.1.19"
 architectures = ["amd64"]
 multi_instance = false
 ldap = true
