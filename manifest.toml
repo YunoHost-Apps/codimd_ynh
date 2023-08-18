@@ -17,7 +17,7 @@ userdoc = "https://hackmd.io/c/codimd-documentation/%2Fs%2Fcodimd-documentation#
 code = "https://github.com/hackmdio/codimd"
 
 [integration]
-yunohost = ">= 11.1.19"
+yunohost = ">= 11.2"
 architectures = ["amd64"]
 multi_instance = false
 ldap = true
@@ -29,7 +29,6 @@ ram.runtime = "50M"
 [install]
     [install.domain]
     type = "domain"
-    full_domain = true
 
     [install.init_main_permission]
     help.en = "If enabled, CodiMD will be accessible by people who do not have an account. This can be changed later via the webadmin."
