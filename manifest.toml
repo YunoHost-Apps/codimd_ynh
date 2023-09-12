@@ -52,7 +52,7 @@ ram.runtime = "50M"
     main.url = "/"
 
     [resources.apt]
-    packages = "postgresql libssl-dev"
+    packages = "postgresql, libssl-dev"
 
     [resources.database]
     type = "postgresql"
