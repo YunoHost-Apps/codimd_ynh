@@ -32,7 +32,7 @@ CodiMD est parfait pour les communautés ouvertes, tandis que HackMD met l'accen
 * Documentation officielle utilisateur : <https://hackmd.io/c/codimd-documentation/%2Fs%2Fcodimd-documentation#User-Guides>
 * Documentation officielle de l’admin : <https://hackmd.io/c/codimd-documentation/%2Fs%2Fcodimd-documentation#Administration-Guides>
 * Dépôt de code officiel de l’app : <https://github.com/hackmdio/codimd>
-* Documentation YunoHost pour cette app : <https://yunohost.org/app_codimd>
+* YunoHost Store: <https://apps.yunohost.org/app/codimd>
 * Signaler un bug : <https://github.com/YunoHost-Apps/codimd_ynh/issues>
 
 ## Informations pour les développeurs
