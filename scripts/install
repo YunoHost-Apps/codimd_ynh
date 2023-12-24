@@ -22,7 +22,6 @@ ynh_exec_warn_less ynh_install_nodejs --nodejs_version=$nodejs_version
 #=================================================
 ynh_script_progression --message="Setting up source files..." --weight=2
 
-# Download, check integrity, uncompress and patch the source from app.src
 ynh_setup_source --dest_dir=$install_dir
 
 chmod -R o-rwx "$install_dir"
@@ -34,8 +33,22 @@ chmod +x $install_dir/app.js
 #=================================================
 ynh_script_progression --message="Configuring NGINX web server..." --weight=2
 
-# Create a dedicated NGINX config
 ynh_add_nginx_config
+
+ynh_add_systemd_config
+
+yunohost service add $app --description="Collaborative Markdown notes" --log="/var/log/$app/$app.log"
+
+#=================================================
+# ADD A CONFIGURATION
+#=================================================
+ynh_script_progression --message="Modifying a config file..." --weight=1
+
+ynh_add_config --template="config.json.example" --destination="$install_dir/config.json"
+ynh_add_config --template=".sequelizerc.example" --destination="$install_dir/.sequelizerc"
+
+chmod 600 $install_dir/config.json
+chmod 600 $install_dir/.sequelizerc
 
 #=================================================
 # SPECIFIC SETUP
@@ -49,32 +62,6 @@ pushd $install_dir
 	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH bin/setup
 	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH $ynh_npm run build
 popd
-
-#=================================================
-# ADD A CONFIGURATION
-#=================================================
-ynh_script_progression --message="Modifying a config file..." --weight=1
-
-ynh_add_config --template="../conf/config.json.example" --destination="$install_dir/config.json"
-ynh_add_config --template="../conf/.sequelizerc.example" --destination="$install_dir/.sequelizerc"
-
-chmod 600 $install_dir/config.json
-chmod 600 $install_dir/.sequelizerc
-
-#=================================================
-# SETUP SYSTEMD
-#=================================================
-ynh_script_progression --message="Configuring a systemd service..." --weight=1
-
-# Create a dedicated systemd config
-ynh_add_systemd_config
-
-#=================================================
-# INTEGRATE SERVICE IN YUNOHOST
-#=================================================
-ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
-
-yunohost service add $app --description="Collaborative Markdown notes" --log="/var/log/$app/$app.log"
 
 #=================================================
 # START SYSTEMD SERVICE
