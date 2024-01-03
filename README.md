@@ -20,7 +20,7 @@ CodiMD is the free software version of HackMD, developed and opened source by th
 
 CodiMD is perfect for open communities, while HackMD emphasizes on permission and access controls for commercial use cases.
 
-**Shipped version:** 2.5.0~ynh1
+**Shipped version:** 2.5.1~ynh1
 
 ## Screenshots
 
