@@ -33,7 +33,7 @@ then
 	ynh_script_progression --message="Upgrading source files..." --weight=16
 
 	# Download, check integrity, uncompress and patch the source from app.src
-	ynh_setup_source --dest_dir=$install_dir --keep="config.json .sequelizerc"
+	ynh_setup_source --dest_dir=$install_dir --full_replace=1 --keep="config.json .sequelizerc"
 fi
 
 chmod -R o-rwx "$install_dir"
