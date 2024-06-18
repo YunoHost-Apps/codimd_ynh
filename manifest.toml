@@ -5,9 +5,9 @@ name = "CodiMD"
 description.en = "Collaborative editor to work on notes written in Markdown"
 description.fr = "Éditeur collaboratif pour travailler sur des notes en Markdown"
 
-version = "2.5.3~ynh1"
+version = "2.5.4~ynh1"
 
-maintainers = ["eric_G"]
+maintainers = []
 
 [upstream]
 license = "AGPL-3.0-only"
@@ -41,8 +41,8 @@ ram.runtime = "50M"
 
 [resources]
         [resources.sources.main]
-        url = "https://github.com/hackmdio/codimd/archive/refs/tags/2.5.3.tar.gz"
-        sha256 = "28289aec6f2b8c2cd134af2b88b8076cf0f50da58855eda2dac6813a374df33d"
+        url = "https://github.com/hackmdio/codimd/archive/refs/tags/2.5.4.tar.gz"
+        sha256 = "1bd556e617188bd82fe40460a16eaeead495a87b2dd1417b12d2b8b6319ff131"
         autoupdate.strategy = "latest_github_tag"
 
     [resources.ports]
