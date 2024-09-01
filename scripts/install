@@ -18,8 +18,6 @@ ynh_script_progression "Setting up source files..."
 
 ynh_setup_source --dest_dir=$install_dir
 
-#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chmod -R o-rwx "$install_dir"
-#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chown -R $app:www-data "$install_dir"
 chmod +x $install_dir/app.js
 
 #=================================================
@@ -41,7 +39,6 @@ ynh_script_progression "Updating configuration..."
 ynh_config_add --template="config.json.example" --destination="$install_dir/config.json"
 ynh_config_add --template=".sequelizerc.example" --destination="$install_dir/.sequelizerc"
 
-#REMOVEME? Assuming the file is setup using ynh_config_add, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chmod 600 $install_dir/config.json
 chmod 600 $install_dir/.sequelizerc
 
 #=================================================
@@ -53,8 +50,8 @@ ynh_script_progression "Building CodiMD... (this will take some time and resourc
 
 pushd $install_dir
 
-	ynh_hide_warnings ynh_exec_as_app node_load_PATH bin/setup
-	ynh_hide_warnings ynh_exec_as_app node_load_PATH npm run build
+	ynh_hide_warnings ynh_exec_as_app bin/setup
+	ynh_hide_warnings ynh_exec_as_app npm run build
 popd
 
 #=================================================

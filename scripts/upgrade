@@ -15,17 +15,13 @@ ynh_systemctl --service=$app --action="stop" --log_path="systemd"
 #=================================================
 ynh_script_progression "Upgrading source files..."
 
-# Download, check integrity, uncompress and patch the source from app.src
 ynh_setup_source --dest_dir=$install_dir --keep="config.json .sequelizerc"
 
-#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chmod -R o-rwx "$install_dir"
-#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chown -R $app:www-data "$install_dir"
 #=================================================
 # UPGRADE DEPENDENCIES
 #=================================================
 ynh_script_progression "Upgrading dependencies..."
 
-# Install Nodejs
 ynh_nodejs_install
 
 #==============================================
@@ -34,9 +30,8 @@ ynh_nodejs_install
 ynh_script_progression "Building CodiMD... (this will take some time and resources!)"
 
 pushd "$install_dir"
-
-	ynh_hide_warnings ynh_exec_as_app node_load_PATH bin/setup
-	ynh_hide_warnings ynh_exec_as_app node_load_PATH npm run build
+	ynh_hide_warnings ynh_exec_as_app bin/setup
+	ynh_hide_warnings ynh_exec_as_app npm run build
 popd
 
 #=================================================
@@ -44,10 +39,8 @@ popd
 #=================================================
 ynh_script_progression "Upgrading systemd configuration..."
 
-# Create a dedicated NGINX config
 ynh_config_add_nginx
 
-# Create a dedicated systemd config
 ynh_config_add_systemd
 
 yunohost service add $app --description="Collaborative Markdown notes" --log="/var/log/$app/$app.log"
