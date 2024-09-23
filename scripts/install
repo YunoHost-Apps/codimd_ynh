@@ -8,7 +8,6 @@ source /usr/share/yunohost/helpers
 #=================================================
 ynh_script_progression "Installing dependencies..."
 
-# Install Nodejs
 ynh_nodejs_install
 
 #=================================================
@@ -49,7 +48,6 @@ chmod 600 $install_dir/.sequelizerc
 ynh_script_progression "Building CodiMD... (this will take some time and resources!)"
 
 pushd $install_dir
-
 	ynh_hide_warnings ynh_exec_as_app bin/setup
 	ynh_hide_warnings ynh_exec_as_app npm run build
 popd
@@ -59,7 +57,6 @@ popd
 #=================================================
 ynh_script_progression "Starting $app's systemd service..."
 
-# Start a systemd service
 ynh_systemctl --service=$app --action=start --log_path=systemd --wait_until="HTTP Server listening"
 
 #=================================================
