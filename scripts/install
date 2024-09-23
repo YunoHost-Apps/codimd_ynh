@@ -41,8 +41,6 @@ ynh_config_add --template=".sequelizerc.example" --destination="$install_dir/.se
 chmod 600 $install_dir/.sequelizerc
 
 #=================================================
-# SPECIFIC SETUP
-#=================================================
 # INSTALL CODIMD
 #=================================================
 ynh_script_progression "Building CodiMD... (this will take some time and resources!)"

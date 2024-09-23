@@ -5,7 +5,7 @@ No se debe editar a mano.
 
 # CodiMD para Yunohost
 
-[![Nivel de integración](https://dash.yunohost.org/integration/codimd.svg)](https://dash.yunohost.org/appci/app/codimd) ![Estado funcional](https://ci-apps.yunohost.org/ci/badges/codimd.status.svg) ![Estado En Mantención](https://ci-apps.yunohost.org/ci/badges/codimd.maintain.svg)
+[![Nivel de integración](https://dash.yunohost.org/integration/codimd.svg)](https://ci-apps.yunohost.org/ci/apps/codimd/) ![Estado funcional](https://ci-apps.yunohost.org/ci/badges/codimd.status.svg) ![Estado En Mantención](https://ci-apps.yunohost.org/ci/badges/codimd.maintain.svg)
 
 [![Instalar CodiMD con Yunhost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=codimd)
 
@@ -37,7 +37,7 @@ CodiMD is perfect for open communities, while HackMD emphasizes on permission an
 
 ## Información para desarrolladores
 
-Por favor enviar sus correcciones a la [`branch testing`](https://github.com/YunoHost-Apps/codimd_ynh/tree/testing
+Por favor enviar sus correcciones a la [rama `testing`](https://github.com/YunoHost-Apps/codimd_ynh/tree/testing).
 
 Para probar la rama `testing`, sigue asÍ:
 

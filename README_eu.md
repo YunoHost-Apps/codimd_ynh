@@ -5,7 +5,7 @@ EZ editatu eskuz.
 
 # CodiMD YunoHost-erako
 
-[![Integrazio maila](https://dash.yunohost.org/integration/codimd.svg)](https://dash.yunohost.org/appci/app/codimd) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/codimd.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/codimd.maintain.svg)
+[![Integrazio maila](https://dash.yunohost.org/integration/codimd.svg)](https://ci-apps.yunohost.org/ci/apps/codimd/) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/codimd.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/codimd.maintain.svg)
 
 [![Instalatu CodiMD YunoHost-ekin](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=codimd)
 
