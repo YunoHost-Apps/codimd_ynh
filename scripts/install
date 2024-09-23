@@ -1,11 +1,5 @@
 #!/bin/bash
 
-#=================================================
-# GENERIC START
-#=================================================
-# IMPORT GENERIC HELPERS
-#=================================================
-
 source _common.sh
 source /usr/share/yunohost/helpers
 
@@ -14,7 +8,6 @@ source /usr/share/yunohost/helpers
 #=================================================
 ynh_script_progression --message="Installing dependencies..." --weight=20
 
-# Install Nodejs
 ynh_exec_warn_less ynh_install_nodejs --nodejs_version=$nodejs_version
 
 #=================================================
@@ -51,8 +44,6 @@ chmod 600 $install_dir/config.json
 chmod 600 $install_dir/.sequelizerc
 
 #=================================================
-# SPECIFIC SETUP
-#=================================================
 # INSTALL CODIMD
 #=================================================
 ynh_script_progression --message="Building CodiMD... (this will take some time and resources!)" --weight=24
@@ -68,7 +59,6 @@ popd
 #=================================================
 ynh_script_progression --message="Starting a systemd service..." --weight=2
 
-# Start a systemd service
 ynh_systemd_action --service_name=$app --action=start --log_path=systemd --line_match="HTTP Server listening"
 
 #=================================================

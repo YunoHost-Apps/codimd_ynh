@@ -1,16 +1,8 @@
 #!/bin/bash
 
-#=================================================
-# GENERIC START
-#=================================================
-# IMPORT GENERIC HELPERS
-#=================================================
-
 source _common.sh
 source /usr/share/yunohost/helpers
 
-#=================================================
-# STANDARD UPGRADE STEPS
 #=================================================
 # STOP SYSTEMD SERVICE
 #=================================================
@@ -23,7 +15,6 @@ ynh_systemd_action --service_name=$app --action="stop" --log_path="systemd"
 #=================================================
 ynh_script_progression --message="Upgrading source files..." --weight=16
 
-# Download, check integrity, uncompress and patch the source from app.src
 ynh_setup_source --dest_dir=$install_dir --keep="config.json .sequelizerc"
 
 chmod -R o-rwx "$install_dir"
@@ -34,11 +25,8 @@ chown -R $app:www-data "$install_dir"
 #=================================================
 ynh_script_progression --message="Upgrading dependencies..." --weight=18
 
-# Install Nodejs
 ynh_exec_warn_less ynh_install_nodejs --nodejs_version=$nodejs_version
 
-#=================================================
-# SPECIFIC UPGRADE
 #==============================================
 # INSTALL CODIMD
 #==============================================
@@ -55,10 +43,8 @@ popd
 #=================================================
 ynh_script_progression --message="Upgrading systemd configuration..." --weight=2
 
-# Create a dedicated NGINX config
 ynh_add_nginx_config
 
-# Create a dedicated systemd config
 ynh_add_systemd_config
 
 yunohost service add $app --description="Collaborative Markdown notes" --log="/var/log/$app/$app.log"
