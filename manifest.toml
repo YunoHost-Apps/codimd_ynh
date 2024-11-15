@@ -5,7 +5,7 @@ name = "CodiMD"
 description.en = "Collaborative editor to work on notes written in Markdown"
 description.fr = "Éditeur collaboratif pour travailler sur des notes en Markdown"
 
-version = "2.5.4~ynh1"
+version = "2.5.4~ynh2"
 
 maintainers = []
 
