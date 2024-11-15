@@ -6,63 +6,59 @@ source /usr/share/yunohost/helpers
 #=================================================
 # INSTALL DEPENDENCIES
 #=================================================
-ynh_script_progression --message="Installing dependencies..." --weight=20
+ynh_script_progression "Installing dependencies..."
 
-ynh_exec_warn_less ynh_install_nodejs --nodejs_version=$nodejs_version
+ynh_nodejs_install
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
-ynh_script_progression --message="Setting up source files..." --weight=2
+ynh_script_progression "Setting up source files..."
 
 ynh_setup_source --dest_dir=$install_dir
 
-chmod -R o-rwx "$install_dir"
-chown -R $app:www-data "$install_dir"
 chmod +x $install_dir/app.js
 
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
-ynh_script_progression --message="Configuring NGINX web server..." --weight=2
+ynh_script_progression "Configuring NGINX web server..."
 
-ynh_add_nginx_config
+ynh_config_add_nginx
 
-ynh_add_systemd_config
+ynh_config_add_systemd
 
 yunohost service add $app --description="Collaborative Markdown notes" --log="/var/log/$app/$app.log"
 
 #=================================================
 # ADD A CONFIGURATION
 #=================================================
-ynh_script_progression --message="Modifying a config file..." --weight=1
+ynh_script_progression "Updating configuration..."
 
-ynh_add_config --template="config.json.example" --destination="$install_dir/config.json"
-ynh_add_config --template=".sequelizerc.example" --destination="$install_dir/.sequelizerc"
+ynh_config_add --template="config.json.example" --destination="$install_dir/config.json"
+ynh_config_add --template=".sequelizerc.example" --destination="$install_dir/.sequelizerc"
 
-chmod 600 $install_dir/config.json
 chmod 600 $install_dir/.sequelizerc
 
 #=================================================
 # INSTALL CODIMD
 #=================================================
-ynh_script_progression --message="Building CodiMD... (this will take some time and resources!)" --weight=24
+ynh_script_progression "Building $app... (this will take some time and resources!)"
 
 pushd $install_dir
-	ynh_use_nodejs
-	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH bin/setup
-	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH $ynh_npm run build
+	ynh_hide_warnings ynh_exec_as_app bin/setup
+	ynh_hide_warnings ynh_exec_as_app npm run build
 popd
 
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
-ynh_script_progression --message="Starting a systemd service..." --weight=2
+ynh_script_progression "Starting $app's systemd service..."
 
-ynh_systemd_action --service_name=$app --action=start --log_path=systemd --line_match="HTTP Server listening"
+ynh_systemctl --service=$app --action=start --log_path=systemd
 
 #=================================================
 # END OF SCRIPT
 #=================================================
 
-ynh_script_progression --message="Installation of $app completed" --last
+ynh_script_progression "Installation of $app completed"
