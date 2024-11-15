@@ -5,7 +5,7 @@ Il NE doit PAS être modifié à la main.
 
 # CodiMD pour YunoHost
 
-[![Niveau d’intégration](https://dash.yunohost.org/integration/codimd.svg)](https://dash.yunohost.org/appci/app/codimd) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/codimd.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/codimd.maintain.svg)
+[![Niveau d’intégration](https://dash.yunohost.org/integration/codimd.svg)](https://ci-apps.yunohost.org/ci/apps/codimd/) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/codimd.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/codimd.maintain.svg)
 
 [![Installer CodiMD avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=codimd)
 
@@ -20,7 +20,7 @@ CodiMD est la version logicielle libre de HackMD, développée et ouverte par l'
 
 CodiMD est parfait pour les communautés ouvertes, tandis que HackMD met l'accent sur les autorisations et les contrôles d'accès pour les cas d'utilisation commerciale.
 
-**Version incluse :** 2.5.4~ynh1
+**Version incluse :** 2.5.4~ynh2
 
 ## Captures d’écran
 
