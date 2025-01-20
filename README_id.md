@@ -5,7 +5,9 @@ Ini TIDAK boleh diedit dengan tangan.
 
 # CodiMD untuk YunoHost
 
-[![Tingkat integrasi](https://dash.yunohost.org/integration/codimd.svg)](https://ci-apps.yunohost.org/ci/apps/codimd/) ![Status kerja](https://ci-apps.yunohost.org/ci/badges/codimd.status.svg) ![Status pemeliharaan](https://ci-apps.yunohost.org/ci/badges/codimd.maintain.svg)
+[![Tingkat integrasi](https://apps.yunohost.org/badge/integration/codimd)](https://ci-apps.yunohost.org/ci/apps/codimd/)
+![Status kerja](https://apps.yunohost.org/badge/state/codimd)
+![Status pemeliharaan](https://apps.yunohost.org/badge/maintained/codimd)
 
 [![Pasang CodiMD dengan YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=codimd)
 

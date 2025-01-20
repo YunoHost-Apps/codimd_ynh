@@ -5,7 +5,9 @@
 
 # CodiMD для YunoHost
 
-[![Уровень интеграции](https://dash.yunohost.org/integration/codimd.svg)](https://ci-apps.yunohost.org/ci/apps/codimd/) ![Состояние работы](https://ci-apps.yunohost.org/ci/badges/codimd.status.svg) ![Состояние сопровождения](https://ci-apps.yunohost.org/ci/badges/codimd.maintain.svg)
+[![Уровень интеграции](https://apps.yunohost.org/badge/integration/codimd)](https://ci-apps.yunohost.org/ci/apps/codimd/)
+![Состояние работы](https://apps.yunohost.org/badge/state/codimd)
+![Состояние сопровождения](https://apps.yunohost.org/badge/maintained/codimd)
 
 [![Установите CodiMD с YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=codimd)
 

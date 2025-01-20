@@ -5,7 +5,9 @@ Il NE doit PAS être modifié à la main.
 
 # CodiMD pour YunoHost
 
-[![Niveau d’intégration](https://dash.yunohost.org/integration/codimd.svg)](https://ci-apps.yunohost.org/ci/apps/codimd/) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/codimd.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/codimd.maintain.svg)
+[![Niveau d’intégration](https://apps.yunohost.org/badge/integration/codimd)](https://ci-apps.yunohost.org/ci/apps/codimd/)
+![Statut du fonctionnement](https://apps.yunohost.org/badge/state/codimd)
+![Statut de maintenance](https://apps.yunohost.org/badge/maintained/codimd)
 
 [![Installer CodiMD avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=codimd)
 
