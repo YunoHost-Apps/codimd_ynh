@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source _common.sh
+
 source /usr/share/yunohost/helpers
 
 #=================================================
@@ -22,7 +22,7 @@ ynh_setup_source --dest_dir=$install_dir --keep="config.json .sequelizerc"
 #=================================================
 ynh_script_progression "Upgrading dependencies..."
 
-ynh_nodejs_install
+#REMOVEME? ynh_nodejs_install
 
 #==============================================
 # INSTALL CODIMD
