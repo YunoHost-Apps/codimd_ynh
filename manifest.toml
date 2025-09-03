@@ -17,7 +17,7 @@ userdoc = "https://hackmd.io/c/codimd-documentation/%2Fs%2Fcodimd-documentation#
 code = "https://github.com/hackmdio/codimd"
 
 [integration]
-yunohost = ">= 12.0.9"
+yunohost = ">= 12.1.17"
 helpers_version = "2.1"
 architectures = ["amd64"]
 multi_instance = false
@@ -58,3 +58,6 @@ ram.runtime = "50M"
 
     [resources.database]
     type = "postgresql"
+
+    [resources.nodejs]
+    version = "16"
